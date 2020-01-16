@@ -34,6 +34,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -201,7 +202,8 @@ public class MovieTicketingSeat extends JFrame {
 				JOptionPane.showMessageDialog(null, "예매가 완료되었습니다.");
 				
 				ReserveDBManager rvMgr = new ReserveDBManager();
-				String revNo = mem + scNum + new Date();
+				SimpleDateFormat sf = new SimpleDateFormat("YYYYMMDD");
+				String revNo = mem + scNum + sf.format(mov.movDate);
 				// String String String int  Date String String int int int int
 				// (예매인덱스), 영화제목, 회원아이디, 극장번호, 상영일, 시작시간, 끝시간, 좌석번호, 성인수, 학생수, 금액, 예약일
 				Reserve rev = new Reserve(0, revNo, dataList[1], mem, Integer.parseInt(dataList[3]), mov.movDate, 

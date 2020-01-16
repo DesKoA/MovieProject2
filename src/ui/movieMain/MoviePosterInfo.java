@@ -218,7 +218,8 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 					JOptionPane.showMessageDialog(contentPane, "영화를 북마크했습니다");
 					String login = loginpop.LOGGED_IN;
 					MovieRank mr = new MovieRank(0, mv.getMovieTitle(), login, '1', null);
-					
+					MovieRankDBManager mrMgr = new MovieRankDBManager();
+					mrMgr.insertMovieFavor(mr);
 					
 				} else if (result == JOptionPane.CANCEL_OPTION) {
 					JOptionPane.showMessageDialog(contentPane, "북마크를 취소했습니다");

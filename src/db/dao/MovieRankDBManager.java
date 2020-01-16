@@ -46,7 +46,7 @@ public class MovieRankDBManager {
 	// 좋아요 넣기
 	public boolean insertMovieFavor(MovieRank mr) {
 			if( con != null ) {
-				String sql = "insert into movie_ranks values(rank_seq.nextval,?,?,?,?)";
+				String sql = "insert into movie_rank values(rank_seq.nextval,?,?,?,?)";
 				//con.createStatement()
 				try {
 					// 사전 템플릿(포맷) 문장을 준비하고...

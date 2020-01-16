@@ -83,7 +83,7 @@ public class MovieMainFrame extends JFrame {
 				}
 			}
 		});
-		OracleDBUtil.closeDB();
+//		OracleDBUtil.closeDB();
 	}
 //
 //	/**
@@ -451,7 +451,7 @@ public class MovieMainFrame extends JFrame {
 			movieTOPList.add(lblTOPS[i]);
 			lblTOPS[i].addMouseListener(movSelectHandle);
 		}
-		OracleDBUtil.closeDB();
+//		OracleDBUtil.closeDB();
 	}
 	
 }

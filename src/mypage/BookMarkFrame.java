@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import data.MovieRank;
+import db.dao.MovieRankDBManager;
 import mypage.ImagePanel;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
@@ -25,6 +27,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.Image;
 
 public class BookMarkFrame extends JFrame {
@@ -161,6 +164,13 @@ public class BookMarkFrame extends JFrame {
 //		label_3.setFont(new Font("±¼¸²", Font.PLAIN, 35));
 		
 //		JPanel like1 = new JPanel();
+		
+		MovieRankDBManager mvRank = new MovieRankDBManager();
+		ArrayList<MovieRank> mvRankList = mvRank.selectAllRank();
+		for (int i = 0; 1 < mvRankList.size(); i++) {
+			MovieRank mvR = mvRankList.get(i);
+			System.out.println(mvR);
+		}
 		
 		ImageIcon frozen = new ImageIcon("./images/poster/°Ü¿ï¿Õ±¹2.jpg");
 

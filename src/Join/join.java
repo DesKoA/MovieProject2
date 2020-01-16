@@ -241,31 +241,32 @@ public class join extends JFrame {
 				idEnter.addFocusListener(new FocusAdapter() {
 					@Override
 					public void focusGained(FocusEvent arg0) {
+						idEnter.setBackground(Color.yellow);
 						idEnter.setForeground(Color.BLACK);
 						String guide = "아이디를 입력해주세요";
 						String mbField = idEnter.getText();
+						System.out.println("pw: " + mbField);
 						if (guide.equals(mbField))
 							idEnter.setText("");
 					}
 					@Override
 					public void focusLost(FocusEvent e) {
+						idEnter.setBackground(Color.WHITE);
 						String guide = "아이디를 입력해주세요";
 						String mbField = idEnter.getText();
+						System.out.println("pw: " + mbField);
 						if (mbField.isEmpty()) {
 							idEnter.setText(guide);
 							idEnter.setForeground(Color.LIGHT_GRAY);
-						} else if (guide.equals(guide))
+						} else if (mbField.equals(guide))
 							idEnter.setForeground(Color.LIGHT_GRAY);
 					}
 				});
 				idEnter.setText("아이디를 입력해주세요");
 				idEnter.setForeground(Color.LIGHT_GRAY);
 				idEnter.setHorizontalAlignment(SwingConstants.LEFT);
-				//panel_17.add(idEnter, BorderLayout.CENTER);
-				idEnter.setColumns(30);
 				idEnter.setBounds(151, 75, 116, 25);
 				centens.add(idEnter);
-				//idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
 				idEnter.setColumns(10);
 		//?? frame.getContentPane().add(canel); 
 		
@@ -301,12 +302,30 @@ public class join extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				pwfirst.setBackground(Color.yellow);
+				pwfirst.setForeground(Color.BLACK);
+				String guide = "패스워드를 입력해주세요";
+				String mbField = new String(pwfirst.getPassword());//getText();
+				System.out.println("pw: " + mbField);
+				if (guide.equals(mbField))
+					pwfirst.setText("");
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
-				pwfirst.setBackground(Color.white);
+				pwfirst.setBackground(Color.WHITE);
+				String guide = "패스워드를 입력해주세요";
+				String mbField = new String(pwfirst.getPassword());//getText();
+				System.out.println("pw: " + mbField);
+				if (mbField.isEmpty()) {
+					pwfirst.setText(guide);
+					pwfirst.setForeground(Color.LIGHT_GRAY);
+				} else if (mbField.equals(guide))
+					pwfirst.setForeground(Color.LIGHT_GRAY);
 			}
 		});
+		pwfirst.setText("패스워드를 입력해주세요");
+		pwfirst.setForeground(Color.LIGHT_GRAY);
+		pwfirst.setHorizontalAlignment(SwingConstants.LEFT);
+		//idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
 		pwfirst.setColumns(8);
 		pwfirst.setBounds(151, 194, 116, 25);
 		centens.add(pwfirst);
@@ -337,25 +356,29 @@ public class join extends JFrame {
 					@Override
 					public void focusGained(FocusEvent e) {
 						pwpwField.setBackground(Color.yellow);
+						String guide = "패스워드를 입력해주세요";
 						String pw1 = new String(pwfirst.getPassword());
 						System.out.println("pw1: " + pw1);
-						if (pw1.isEmpty()) {
+						if (guide.equals(pw1)) {
 							lblStatus.setForeground(Color.RED);
-						//	lblStatus.setText("첫번째 암호 입력하세요!");
+							pwpwField.setText("");
 							pwfirst.requestFocusInWindow();
 						}
 					}
 					@Override
 					public void focusLost(FocusEvent e) {
-						pwpwField.setBackground(Color.white);				
+						pwpwField.setBackground(Color.white);	
+						String guide = "패스워드를 입력해주세요";
 						String pw1 = new String(pwfirst.getPassword());
 						String pw2 = new String(pwpwField.getPassword());
 						System.out.println("pw2: " + pw2);
 						if (pw2.isEmpty()) {
+							pwfirst.setText(guide);
 							lblStatus.setForeground(Color.RED);
 					//		lblStatus.setText("두번째 암호 입력하세요!");
 						} else {
 							// 4자 길이?
+							pwfirst.setForeground(Color.LIGHT_GRAY);
 							if( pw1.equals(pw2) ) {
 								lblStatus.setForeground(Color.BLUE);
 								lblStatus.setText("암호 일치");
@@ -366,7 +389,9 @@ public class join extends JFrame {
 						}
 					}
 				});
-		
+				pwpwField.setText("패스워드를 입력해주세요");
+				pwpwField.setForeground(Color.LIGHT_GRAY);
+				pwpwField.setHorizontalAlignment(SwingConstants.LEFT);
 		JLabel yymmdd = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
 		yymmdd.setBounds(141, 261, 140, 25);
 		centens.add(yymmdd);

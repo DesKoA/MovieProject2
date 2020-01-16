@@ -26,6 +26,7 @@ import db.dao.MovieDBManager;
 import db.dao.ReserveDBManager;
 import db.dao.SeatDBManager;
 import db.dao.TheatersDBManager;
+import login.loginpop;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -200,11 +201,11 @@ public class MovieTicketingSeat extends JFrame {
 				JOptionPane.showMessageDialog(null, "예매가 완료되었습니다.");
 				
 				ReserveDBManager rvMgr = new ReserveDBManager();
-				String mem = "test";
+				String mem = loginpop.LOGGED_IN;
 				String revNo = mem + scNum + new Date();
 				// String String String int  Date String String int int int int
 				// (예매인덱스), 영화제목, 회원아이디, 극장번호, 상영일, 시작시간, 끝시간, 좌석번호, 성인수, 학생수, 금액, 예약일
-				Reserve rev = new Reserve(0, revNo, dataList[1], dataList[2], Integer.parseInt(dataList[3]), mov.movDate, 
+				Reserve rev = new Reserve(0, revNo, dataList[1], mem, Integer.parseInt(dataList[3]), mov.movDate, 
 						dataList[5], dataList[6], stArray, Integer.parseInt(dataList[8]), Integer.parseInt(dataList[9]),
 						Integer.parseInt(dataList[10]), new Date());
 				rvMgr.insertReserve(rev);

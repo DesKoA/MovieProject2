@@ -288,6 +288,33 @@ public class join extends JFrame {
 		email.setFont(new Font("한컴돋움", Font.PLAIN, 20));
 		
 		emailField = new JTextField();
+		emailField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				emailField.setBackground(Color.yellow);
+				emailField.setForeground(Color.BLACK);
+				String guide = "이메일을 입력해주세요";
+				String mbField = emailField.getText();
+				System.out.println("email: " + mbField);
+				if (guide.equals(mbField))
+					emailField.setText("");
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				emailField.setBackground(Color.WHITE);
+				String guide = "이메일을 입력해주세요";
+				String mbField = emailField.getText();
+				System.out.println("email: " + mbField);
+				if (mbField.isEmpty()) {
+					emailField.setText(guide);
+					emailField.setForeground(Color.LIGHT_GRAY);
+				} else if (mbField.equals(guide))
+					emailField.setForeground(Color.LIGHT_GRAY);
+			}
+		});
+		emailField.setText("이메일을 입력해주세요");
+		emailField.setForeground(Color.LIGHT_GRAY);
+		emailField.setHorizontalAlignment(SwingConstants.LEFT);
 		emailField.setBounds(401, 75, 199, 25);
 		centens.add(emailField);
 		emailField.setColumns(10);

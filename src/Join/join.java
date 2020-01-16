@@ -362,7 +362,7 @@ public class join extends JFrame {
 						if (guide.equals(pw1)) {
 							lblStatus.setForeground(Color.RED);
 							pwpwField.setText("");
-							pwfirst.requestFocusInWindow();
+							//pwfirst.requestFocusInWindow();
 						}
 					}
 					@Override
@@ -373,10 +373,10 @@ public class join extends JFrame {
 						String pw2 = new String(pwpwField.getPassword());
 						System.out.println("pw2: " + pw2);
 						if (pw2.isEmpty()) {
-							pwfirst.setText(guide);
+							pwpwField.setText(guide);
 							lblStatus.setForeground(Color.RED);
 					//		lblStatus.setText("두번째 암호 입력하세요!");
-						} else {
+						} else if(pw2.equals(guide)){
 							// 4자 길이?
 							pwfirst.setForeground(Color.LIGHT_GRAY);
 							if( pw1.equals(pw2) ) {

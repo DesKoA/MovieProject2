@@ -177,6 +177,7 @@ public class BookMarkFrame extends JFrame {
 			MovieRank mvR = mvRankList.get(i);
 		}
 		
+		
 		ImageIcon frozen = new ImageIcon("./images/poster/°Ü¿ï¿Õ±¹2.jpg");
 
 		ImagePanel like1 = new ImagePanel(frozen.getImage(), "°Ü¿ï¿Õ±¹2.jpg");
@@ -203,6 +204,7 @@ public class BookMarkFrame extends JFrame {
 		for (int i = 0; i < mf.size(); i++) {
 			MovieInfo mov = mf.get(i);
 			Info info = new Info(mov);
+			
 			panel_4.add(String.valueOf("card" + mf.get(i)), info);
 		}
 		

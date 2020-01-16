@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import data.MovieInfo;
+import data.MovieRank;
+import db.dao.MovieRankDBManager;
+import login.loginpop;
 import mypage.MyPageFrame;
 import ui.ticketing.MovieTicketing;
 
@@ -213,6 +216,10 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 						JOptionPane.OK_CANCEL_OPTION, 1);
 				if (result == JOptionPane.OK_OPTION) {
 					JOptionPane.showMessageDialog(contentPane, "영화를 북마크했습니다");
+					String login = loginpop.LOGGED_IN;
+					MovieRank mr = new MovieRank(0, mv.getMovieTitle(), login, '1', null);
+					
+					
 				} else if (result == JOptionPane.CANCEL_OPTION) {
 					JOptionPane.showMessageDialog(contentPane, "북마크를 취소했습니다");
 				}

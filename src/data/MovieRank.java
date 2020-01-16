@@ -6,7 +6,7 @@ public class MovieRank {
 	private int ratingNo; // 번호(자동증가)
 	private String movieTitle; // 영화 제목(영화 테이블)
 	private String memberID; // 회원 아이디(회원 테이블)
-	private boolean ratingScore; // 좋아요
+	private char ratingScore; // 좋아요
 	private String ratingContent; // 내용
 	
 	private MovieInfo mov = new MovieInfo();
@@ -14,7 +14,7 @@ public class MovieRank {
 	
 	public MovieRank() {}
 	
-	public MovieRank(int ratingNo, boolean ratingScore, String ratingContent) {
+	public MovieRank(int ratingNo, char ratingScore, String ratingContent) {
 		this.ratingNo = ratingNo;
 		this.movieTitle = mov.getMovieTitle();
 		this.memberID = mb.toString();
@@ -22,7 +22,7 @@ public class MovieRank {
 		this.ratingContent = ratingContent;
 	}
 
-	public MovieRank(int ratingNo, String movieTitle, String memberID, boolean ratingScore, String ratingContent) {
+	public MovieRank(int ratingNo, String movieTitle, String memberID, char ratingScore, String ratingContent) {
 		this.ratingNo = ratingNo;
 		this.movieTitle = movieTitle;
 		this.memberID = memberID;
@@ -54,11 +54,11 @@ public class MovieRank {
 		this.memberID = memberID;
 	}
 
-	public boolean isRatingScore() {
+	public char isRatingScore() {
 		return ratingScore;
 	}
 
-	public void setRatingScore(boolean ratingScore) {
+	public void setRatingScore(char ratingScore) {
 		this.ratingScore = ratingScore;
 	}
 	

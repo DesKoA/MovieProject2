@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import data.MovieInfo;
-import movie.mypage.MyPageFrame;
+import mypage.MyPageFrame;
 import ui.ticketing.MovieTicketing;
 
 import java.awt.FlowLayout;

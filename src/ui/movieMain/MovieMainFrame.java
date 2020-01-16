@@ -18,7 +18,7 @@ import db.dao.MemberDBManager;
 import db.dao.MovieDBManager;
 import db.util.OracleDBUtil;
 import login.loginpop;
-import movie.mypage.MyPageFrame;
+import mypage.MyPageFrame;
 import ui.admin.Admin;
 
 import java.awt.FlowLayout;

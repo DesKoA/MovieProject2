@@ -187,6 +187,7 @@ public class TicketInfoFrame extends JFrame {
 		ReserveDBMgr rvMgr = new ReserveDBMgr();
 		//fff = rvMgr.selectSeat();
 		ArrayList<Reserve1> rvList = rvMgr.reveResult();
+		System.out.println(rvList.size());
 //		for (Reserve1 reserve1 : rvList) {
 //			System.out.println(reserve1.toString());
 //		}

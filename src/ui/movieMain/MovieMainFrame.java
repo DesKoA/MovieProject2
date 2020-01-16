@@ -17,6 +17,7 @@ import data.MovieInfo;
 import db.dao.MemberDBManager;
 import db.dao.MovieDBManager;
 import db.util.OracleDBUtil;
+import login.loginpop;
 import movie.mypage.MyPageFrame;
 import ui.admin.Admin;
 
@@ -274,28 +275,29 @@ public class MovieMainFrame extends JFrame {
 		pnInfoTitle.add(pnMyPageLogout, BorderLayout.WEST);
 		MemberDBManager mbMgr = new MemberDBManager();
 		ArrayList<Member> mbA = mbMgr.selectAllMember();
-		Member mb = mbA.get(0);
+		//Member mb = mbA.get(0);
+		String logId = loginpop.LOGGED_IN;
+		int dexNum;
 		
-		//int dexNum;
-		//if(mb.getMemberID() != "admin") {
+		if(!logId.equals("admin")) {
 		lblMyPage = new JLabel("MyPage");
-		//dexNum = 0;
-		//} else {
-		//lblMyPage = new JLabel("admin");
-		//dexNum = 1;
-		//}
+		dexNum = 0;
+		} else {
+		lblMyPage = new JLabel("admin");
+		dexNum = 1;
+		}
 		lblMyPage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//if(dexNum == 0) {
+				if(dexNum == 0) {
 				MyPageFrame mpf = new MyPageFrame();
 				mpf.setSize(1000, 600);
 				mpf.setVisible(true);
-				//} else if(dexNum == 1) {
-					//Admin ad = new Admin();
-					//ad.setSize(500, 400);
-					//ad.setVisible(true);
-				//}
+				} else if(dexNum == 1) {
+					Admin ad = new Admin();
+					ad.setSize(1035, 660);
+					ad.setVisible(true);
+				}
 			}
 		});
 		lblMyPage.setForeground(Color.WHITE);

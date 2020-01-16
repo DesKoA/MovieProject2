@@ -15,6 +15,7 @@ import db.dao.MemberDBManager;
 import ui.member.MemberPasswordMgr;*/
 import db.util.OracleDBUtil;
 //import ui.member.MemberPasswordMgr;
+import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -110,6 +111,10 @@ public class loginpop extends JFrame {
 						txtWelcome.setText(login+" 회원 로그인 성공!!");
 						System.out.println("12");
 						LOGGED_IN = Member.getMemberID();
+						MovieMainFrame mmf = new MovieMainFrame();
+						mmf.setSize(1000, 600);
+						dispose();
+						mmf.setVisible(true);
 					} else {
 						txtWelcome.setText(login+" 회원 암호 불일치!");
 						System.out.println("113");

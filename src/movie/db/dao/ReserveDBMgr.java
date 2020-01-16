@@ -1,6 +1,7 @@
 package movie.db.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -90,13 +91,44 @@ public class ReserveDBMgr {
 				
 				Statement stmt =  con.createStatement();
 				ResultSet rs = stmt.executeQuery(sql);
+				ArrayList<Reserve1> rvList = new ArrayList<Reserve1>();
+				
 				
 				while ( rs.next() ) {
 					int RESERVE_NO = rs.getInt("RESERVE_NO");
-					System.out.println(RESERVE_NO);
+					
+				//	System.out.println(RESERVE_NO);
 					String MOVIE_TITLE = rs.getString("MOVIE_TITLE");
-					System.out.println(MOVIE_TITLE);
+				//	System.out.println(MOVIE_TITLE);
+					String MEMBER_ID = rs.getString("MEMBER_ID");
+				//	System.out.println(MEMBER_ID);
+					int SCREEN_NO = rs.getInt("SCREEN_NO");
+				//	System.out.println(SCREEN_NO);
+					Date MOVIE_DATE = rs.getDate("MOVIE_DATE");
+				//	System.out.println(MOVIE_DATE);
+					String MOVIE_START = rs.getString("MOVIE_START");
+				//	System.out.println(MOVIE_START);
+					String MOVIE_END = rs.getString("MOVIE_END");
+				//	System.out.println(MOVIE_END);
+					int SEAT_NO = rs.getInt("SEAT_NO");
+				//	System.out.println(SEAT_NO);
+					int RESERVE_ADULT = rs.getInt("RESERVE_ADULT");
+				//.out.println(RESERVE_ADULT);
+					int RESERVE_STUDENT = rs.getInt("RESERVE_STUDENT");
+				//	System.out.println(RESERVE_STUDENT);
+					int RESERVE_MONEY = rs.getInt("RESERVE_MONEY");
+				//	System.out.println(RESERVE_MONEY);
+					Date RESERVE_DAY = rs.getDate("RESERVE_DAY");
+				//.out.println(RESERVE_DAY);
+					
+					Reserve1 rv = new Reserve1(RESERVE_NO, MOVIE_TITLE, MEMBER_ID, SCREEN_NO, MOVIE_DATE, MOVIE_START, MOVIE_END, SEAT_NO, RESERVE_ADULT, RESERVE_STUDENT, RESERVE_MONEY, RESERVE_DAY, "");
+					
+					rvList.add(rv);
+						
 				}
+				
+				System.out.println("예매개수" + rvList.size());
+				return rvList;
 				
 			} catch (SQLException e) {
 				e.printStackTrace();

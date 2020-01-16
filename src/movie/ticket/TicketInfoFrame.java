@@ -6,20 +6,23 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import data.Reserve1;
 import movie.db.dao.ReserveDBMgr;
 import movie.db.util.OracleDBUtil;
 import movie.mypage.MyPageFrame;
-import ui.movieMain.MovieMainFrame;
+import movie.mypage.ImagePanel;
 
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class TicketInfoFrame extends JFrame {
 
@@ -97,27 +100,11 @@ public class TicketInfoFrame extends JFrame {
 		panel_3.setBounds(0, 99, 223, 472);
 		panel_1.add(panel_3);
 		
-		JLabel lblMVInfoP = new JLabel("\uC601\uD654\uC815\uBCF4 \uD398\uC774\uC9C0");
-		lblMVInfoP.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				MovieMainFrame mf2 = new MovieMainFrame();
-				mf2.setSize(1000, 600);
-				mf2.setVisible(true);
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblMVInfoP.setForeground(Color.gray);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblMVInfoP.setForeground(Color.black);
-			}
-		});
-		lblMVInfoP.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMVInfoP.setFont(new Font("±º∏≤", Font.ITALIC, 25));
-		lblMVInfoP.setBounds(12, 21, 199, 30);
-		panel_3.add(lblMVInfoP);
+		JLabel label_1 = new JLabel("\uC601\uD654\uC815\uBCF4 \uD398\uC774\uC9C0");
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		label_1.setFont(new Font("±º∏≤", Font.ITALIC, 25));
+		label_1.setBounds(12, 21, 199, 30);
+		panel_3.add(label_1);
 		
 		JLabel lblLogout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
 		lblLogout.setHorizontalAlignment(SwingConstants.CENTER);
@@ -144,24 +131,83 @@ public class TicketInfoFrame extends JFrame {
 		lblMP.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 30));
 		lblMP.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(547, 0, 223, 107);
-		panel_2.add(panel_4);
-		panel_4.setLayout(null);
-		panel_4.setBackground(Color.PINK);
+		//JPanel panel_5 = new JPanel();
+		ImageIcon ticket = new ImageIcon("./images/∆ºƒœ √÷¡æ.jpg");
 		
-		JLabel label_2 = new JLabel("minmin\uB2D8");
-		label_2.setBounds(31, 0, 192, 97);
-		panel_4.add(label_2);
-		label_2.setFont(new Font("±º∏≤", Font.PLAIN, 35));
+		ImagePanel ticketImg = new ImagePanel(ticket.getImage(), "∆ºƒœ √÷¡æ.jpg");
+		ticketImg.setBounds(233, 110, 749, 451);
+		panel.add(ticketImg);
+		ticketImg.setLayout(null);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBounds(233, 110, 749, 451);
-		panel.add(panel_5);
-		panel_5.setLayout(null);
+		JLabel lblMvTitle = new JLabel("New label");
+		lblMvTitle.setFont(new Font("±º∏≤", Font.PLAIN, 30));
+		lblMvTitle.setBounds(102, 38, 486, 87);
+		ticketImg.add(lblMvTitle);
+		
+		JLabel lblReveNum = new JLabel("New label");
+		lblReveNum.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblReveNum.setBounds(102, 165, 239, 39);
+		ticketImg.add(lblReveNum);
+		
+		JLabel lblMvDate = new JLabel("New label");
+		lblMvDate.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblMvDate.setBounds(102, 220, 239, 39);
+		ticketImg.add(lblMvDate);
+		
+		JLabel lblScrNum = new JLabel("New label");
+		lblScrNum.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblScrNum.setBounds(397, 165, 91, 39);
+		ticketImg.add(lblScrNum);
+		
+		JLabel lblSeatNum = new JLabel("New label");
+		lblSeatNum.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblSeatNum.setBounds(397, 210, 191, 50);
+		ticketImg.add(lblSeatNum);
+		
+		JLabel lblMemID = new JLabel("New label");
+		lblMemID.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblMemID.setBounds(102, 281, 239, 63);
+		ticketImg.add(lblMemID);
+		
+		JLabel lblPayMoney = new JLabel("New label");
+		lblPayMoney.setFont(new Font("±º∏≤", Font.PLAIN, 20));
+		lblPayMoney.setBounds(102, 368, 239, 58);
+		ticketImg.add(lblPayMoney);
+		
+		JLabel lblStartT = new JLabel("New label");
+		lblStartT.setFont(new Font("±º∏≤", Font.PLAIN, 16));
+		lblStartT.setBounds(397, 288, 191, 50);
+		ticketImg.add(lblStartT);
+		
+		JLabel lblEndT = new JLabel("New label");
+		lblEndT.setFont(new Font("±º∏≤", Font.PLAIN, 16));
+		lblEndT.setBounds(397, 367, 191, 63);
+		ticketImg.add(lblEndT);
 		
 		ReserveDBMgr rvMgr = new ReserveDBMgr();
+		
 		//fff = rvMgr.selectSeat();
-		rvMgr.reveResult();
+		ArrayList<Reserve1> rvList = rvMgr.reveResult();
+		System.out.println(rvList.size());
+//		for (Reserve1 reserve1 : rvList) {
+//			System.out.println(reserve1.toString());
+//		}
+		for (int i = 0; i < rvList.size(); i++) {
+			Reserve1 reserve1 = rvList.get(i);
+			System.out.println(reserve1.toString());
+			
+		}
+		
+		Reserve1 test1 = rvList.get(0);
+		lblMvTitle.setText("øµ»≠¡¶∏Ò: " + test1.getMovieTitle());
+		lblReveNum.setText("øπ∏≈π¯»£: " + (String.valueOf(test1.getReserveNo())));
+		lblMvDate.setText("ªÛøµ≥Ø¬•: " + (String.valueOf(test1.getMovieDate())));
+		lblScrNum.setText("ªÛøµ∞¸: " + (String.valueOf(test1.getScreenNo())));
+		lblSeatNum.setText("¡¬ºÆ: \r\n" + (String.valueOf(test1.getSeatNo())));
+		lblMemID.setText("æ∆¿Ãµ: " + test1.getMemberID());
+		lblPayMoney.setText("∞·¡¶«“ ±›æ◊: " + (String.valueOf(test1.getReserveMoney()) + " ø¯"));
+		lblStartT.setText("øµ»≠Ω√¿€Ω√∞£: " + (String.valueOf(test1.getMovieStart())));
+		lblEndT.setText("øµ»≠¡æ∑·Ω√∞£: " + (String.valueOf(test1.getMovieEnd())));
+		
 	}
 }

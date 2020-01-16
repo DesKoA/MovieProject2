@@ -44,6 +44,8 @@ import javax.swing.SpinnerDateModel;
 import java.util.Date;
 import java.util.Calendar;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -236,13 +238,43 @@ public class join extends JFrame {
 		
 				
 				idEnter = new JTextField();
+				idEnter.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent arg0) {
+						idEnter.setForeground(Color.BLACK);
+						String guide = "아이디를 입력해주세요";
+						String mbField = idEnter.getText();
+						if (guide.equals(mbField))
+							idEnter.setText("");
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						String guide = "아이디를 입력해주세요";
+						String mbField = idEnter.getText();
+						if (mbField.isEmpty()) {
+							idEnter.setText(guide);
+							idEnter.setForeground(Color.LIGHT_GRAY);
+						} else if (guide.equals(guide))
+							idEnter.setForeground(Color.LIGHT_GRAY);
+					}
+				});
+				idEnter.setText("아이디를 입력해주세요");
+				idEnter.setForeground(Color.LIGHT_GRAY);
+				idEnter.setHorizontalAlignment(SwingConstants.LEFT);
+				//panel_17.add(idEnter, BorderLayout.CENTER);
+				idEnter.setColumns(30);
 				idEnter.setBounds(151, 75, 116, 25);
 				centens.add(idEnter);
-				idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
+				//idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
 				idEnter.setColumns(10);
 		//?? frame.getContentPane().add(canel); 
 		
 		JButton pwCheck = new JButton("\uC911\uBCF5\uD655\uC778");
+		pwCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		pwCheck.setForeground(new Color(240, 248, 255));
 		pwCheck.setBackground(new Color(47, 79, 79));
 		pwCheck.setBounds(228, 102, 90, 23);

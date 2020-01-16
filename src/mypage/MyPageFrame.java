@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JLabel;
 import java.awt.Toolkit;
@@ -73,6 +74,22 @@ public class MyPageFrame extends JFrame {
 		panel_3.setLayout(null);
 		
 		JLabel lblMVInfoP = new JLabel("\uC601\uD654\uC815\uBCF4 \uD398\uC774\uC9C0");
+		lblMVInfoP.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				MovieMainFrame mmf = new MovieMainFrame();
+				mmf.setSize(1000, 600);
+				mmf.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblMVInfoP.setForeground(Color.gray);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblMVInfoP.setForeground(Color.black);
+			}
+		});
 		lblMVInfoP.setBounds(12, 21, 199, 30);
 		panel_3.add(lblMVInfoP);
 		lblMVInfoP.setFont(new Font("±¼¸²", Font.ITALIC, 25));

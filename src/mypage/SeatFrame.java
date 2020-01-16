@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import mypage.MyPageFrame;
+import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JTable;
 import java.awt.GridLayout;
@@ -75,11 +76,27 @@ public class SeatFrame extends JFrame {
 		panel_3.setBounds(0, 99, 223, 472);
 		panel_1.add(panel_3);
 		
-		JLabel mvInfoP = new JLabel("\uC601\uD654\uC815\uBCF4 \uD398\uC774\uC9C0");
-		mvInfoP.setHorizontalAlignment(SwingConstants.CENTER);
-		mvInfoP.setFont(new Font("굴림", Font.ITALIC, 25));
-		mvInfoP.setBounds(12, 21, 199, 30);
-		panel_3.add(mvInfoP);
+		JLabel lblMVInfoP = new JLabel("\uC601\uD654\uC815\uBCF4 \uD398\uC774\uC9C0");
+		lblMVInfoP.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MovieMainFrame mmf = new MovieMainFrame();
+				mmf.setSize(1000, 600);
+				mmf.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblMVInfoP.setForeground(Color.gray);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblMVInfoP.setForeground(Color.black);
+			}
+		});
+		lblMVInfoP.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMVInfoP.setFont(new Font("굴림", Font.ITALIC, 25));
+		lblMVInfoP.setBounds(12, 21, 199, 30);
+		panel_3.add(lblMVInfoP);
 		
 		JLabel logOut = new JLabel("\uB85C\uADF8\uC544\uC6C3");
 		logOut.setHorizontalAlignment(SwingConstants.CENTER);
@@ -161,31 +178,31 @@ public class SeatFrame extends JFrame {
 				selSeat.setVisible(true);
 			}
 		});
-		btnSeat.setBounds(133, 174, 170, 73);
+		btnSeat.setBounds(295, 175, 170, 73);
 		panel_4.add(btnSeat);
 		
-		JButton btnTime = new JButton("\uC2DC\uAC04 \uC124\uC815\uD558\uB7EC \uAC00\uAE30");
-		btnTime.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnTime.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				btnTime.setForeground(Color.green);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnTime.setForeground(Color.black);
-			}
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("시간 설정");
-				SelectTImeDialog selTime = new SelectTImeDialog();
-				selTime.setVisible(true);
-			}
-		});
-		btnTime.setBounds(440, 174, 170, 73);
-		panel_4.add(btnTime);
+//		JButton btnTime = new JButton("\uC2DC\uAC04 \uC124\uC815\uD558\uB7EC \uAC00\uAE30");
+//		btnTime.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//			}
+//		});
+//		btnTime.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseEntered(MouseEvent arg0) {
+//				btnTime.setForeground(Color.green);
+//			}
+//			@Override
+//			public void mouseExited(MouseEvent e) {
+//				btnTime.setForeground(Color.black);
+//			}
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				System.out.println("시간 설정");
+//				SelectTImeDialog selTime = new SelectTImeDialog();
+//				selTime.setVisible(true);
+//			}
+//		});
+//		btnTime.setBounds(440, 174, 170, 73);
+//		panel_4.add(btnTime);
 	}
 }

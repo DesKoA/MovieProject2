@@ -161,6 +161,7 @@ public class BookMarkFrame extends JFrame {
 //		label_3.setFont(new Font("±¼¸²", Font.PLAIN, 35));
 		
 //		JPanel like1 = new JPanel();
+		
 		ImageIcon frozen = new ImageIcon("./images/poster/°Ü¿ï¿Õ±¹2.jpg");
 
 		ImagePanel like1 = new ImagePanel(frozen.getImage(), "°Ü¿ï¿Õ±¹2.jpg");

@@ -150,16 +150,7 @@ public class BookMarkFrame extends JFrame {
 		lblMP.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 30));
 		lblMP.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(547, 0, 223, 107);
-		panel_2.add(panel_4);
-		panel_4.setLayout(null);
-		panel_4.setBackground(Color.PINK);
 		
-		JLabel label_3 = new JLabel("minmin\uB2D8");
-		label_3.setBounds(31, 0, 192, 97);
-		panel_4.add(label_3);
-		label_3.setFont(new Font("±¼¸²", Font.PLAIN, 35));
 		
 //		JPanel like1 = new JPanel();
 		ImageIcon frozen = new ImageIcon("./images/poster/°Ü¿ï¿Õ±¹2.jpg");

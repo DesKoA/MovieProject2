@@ -145,16 +145,6 @@ public class SeatFrame extends JFrame {
 		lblMP.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 30));
 		lblMP.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setLayout(null);
-		panel_5.setBackground(Color.PINK);
-		panel_5.setBounds(547, 0, 223, 107);
-		panel_2.add(panel_5);
-		
-		JLabel lblIoiooioi = new JLabel("minmin\uB2D8");
-		lblIoiooioi.setFont(new Font("±¼¸²", Font.PLAIN, 35));
-		lblIoiooioi.setBounds(31, 0, 192, 97);
-		panel_5.add(lblIoiooioi);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(233, 110, 749, 451);

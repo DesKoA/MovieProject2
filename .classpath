@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/AbsoluteLayout-RELEASE112.jar"/>
+	<classpathentry kind="lib" path="lib/JDBC_LIB/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="lib" path="lib/JDBC_LIB/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="lib/editlivejavabean.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

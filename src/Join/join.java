@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import data.Member;
 import db.dao.MemberDBManager;
+//import db.dao.MemberDBMgr;
 import db.util.OracleDBUtil;
 import login.loginpop;
 import main.MainPage;
@@ -70,6 +71,8 @@ public class join extends JFrame {
 	protected java.sql.Date memberBirth;
 	protected String memberPhone;
 	public static OracleDBUtil db;
+	private JButton OKButton;
+	private JLabel label_id;
 	/**
 	 * Launch the application.
 	 */
@@ -241,46 +244,72 @@ public class join extends JFrame {
 				idEnter.addFocusListener(new FocusAdapter() {
 					@Override
 					public void focusGained(FocusEvent arg0) {
-						idEnter.setBackground(Color.yellow);
 						idEnter.setForeground(Color.BLACK);
 						String guide = "아이디를 입력해주세요";
 						String mbField = idEnter.getText();
-						System.out.println("pw: " + mbField);
 						if (guide.equals(mbField))
 							idEnter.setText("");
 					}
 					@Override
 					public void focusLost(FocusEvent e) {
-						idEnter.setBackground(Color.WHITE);
 						String guide = "아이디를 입력해주세요";
 						String mbField = idEnter.getText();
-						System.out.println("pw: " + mbField);
 						if (mbField.isEmpty()) {
 							idEnter.setText(guide);
 							idEnter.setForeground(Color.LIGHT_GRAY);
-						} else if (mbField.equals(guide))
+						} else if (guide.equals(guide))
 							idEnter.setForeground(Color.LIGHT_GRAY);
 					}
 				});
 				idEnter.setText("아이디를 입력해주세요");
 				idEnter.setForeground(Color.LIGHT_GRAY);
 				idEnter.setHorizontalAlignment(SwingConstants.LEFT);
+				//panel_17.add(idEnter, BorderLayout.CENTER);
+				idEnter.setColumns(30);
 				idEnter.setBounds(151, 75, 116, 25);
 				centens.add(idEnter);
+				//idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
 				idEnter.setColumns(10);
 		//?? frame.getContentPane().add(canel); 
 		
-		JButton pwCheck = new JButton("\uC911\uBCF5\uD655\uC778");
-		pwCheck.addActionListener(new ActionListener() {
+		JButton idCheck = new JButton("\uC911\uBCF5\uD655\uC778");
+		idCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				MemberDBManager mbMgr = new MemberDBManager();
+				String login = idEnter.getText();
+				int dup = mbMgr.isDuplicatedMember(login);
+				String errMsg = null;
+				switch (dup) {
+				case 0:
+					// 로그인 이름이 중복되지 않았다
+					OKButton.setEnabled(true);
+					label_id.setForeground(Color.blue);
+					label_id.setText("로그인명 사용가능!!");
+					break;
+				case 1: errMsg = "로그인명 중복발견!!";
+				case 2: if( errMsg == null )  
+							errMsg = "DB 예외!!";
+				case 3: if( errMsg == null )
+							errMsg = "통신 예외!!";
+				label_id.setForeground(Color.red);
+				label_id.setText(errMsg);
+				default:
+					break;
+				}
 				
+				// 중복되면 ...
+			
 			}
 		});
-		pwCheck.setForeground(new Color(240, 248, 255));
-		pwCheck.setBackground(new Color(47, 79, 79));
-		pwCheck.setBounds(228, 102, 90, 23);
-		centens.add(pwCheck);
-		pwCheck.setBorderPainted(false);
+		idCheck.setForeground(new Color(240, 248, 255));
+		idCheck.setBackground(new Color(47, 79, 79));
+		idCheck.setBounds(228, 102, 90, 23);
+		centens.add(idCheck);
+		idCheck.setBorderPainted(false);
+		
+		label_id = new JLabel("");
+		label_id.setBounds(141, 134, 148, 15);
+		centens.add(label_id);
 		
 		JLabel email = new JLabel("\uC774\uBA54\uC77C");
 		email.setBounds(391, 38, 140, 25);
@@ -288,33 +317,6 @@ public class join extends JFrame {
 		email.setFont(new Font("한컴돋움", Font.PLAIN, 20));
 		
 		emailField = new JTextField();
-		emailField.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				emailField.setBackground(Color.yellow);
-				emailField.setForeground(Color.BLACK);
-				String guide = "이메일을 입력해주세요";
-				String mbField = emailField.getText();
-				System.out.println("email: " + mbField);
-				if (guide.equals(mbField))
-					emailField.setText("");
-			}
-			@Override
-			public void focusLost(FocusEvent e) {
-				emailField.setBackground(Color.WHITE);
-				String guide = "이메일을 입력해주세요";
-				String mbField = emailField.getText();
-				System.out.println("email: " + mbField);
-				if (mbField.isEmpty()) {
-					emailField.setText(guide);
-					emailField.setForeground(Color.LIGHT_GRAY);
-				} else if (mbField.equals(guide))
-					emailField.setForeground(Color.LIGHT_GRAY);
-			}
-		});
-		emailField.setText("이메일을 입력해주세요");
-		emailField.setForeground(Color.LIGHT_GRAY);
-		emailField.setHorizontalAlignment(SwingConstants.LEFT);
 		emailField.setBounds(401, 75, 199, 25);
 		centens.add(emailField);
 		emailField.setColumns(10);
@@ -329,30 +331,12 @@ public class join extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				pwfirst.setBackground(Color.yellow);
-				pwfirst.setForeground(Color.BLACK);
-				String guide = "패스워드를 입력해주세요";
-				String mbField = new String(pwfirst.getPassword());//getText();
-				System.out.println("pw: " + mbField);
-				if (guide.equals(mbField))
-					pwfirst.setText("");
 			}
 			@Override
 			public void focusLost(FocusEvent e) {
-				pwfirst.setBackground(Color.WHITE);
-				String guide = "패스워드를 입력해주세요";
-				String mbField = new String(pwfirst.getPassword());//getText();
-				System.out.println("pw: " + mbField);
-				if (mbField.isEmpty()) {
-					pwfirst.setText(guide);
-					pwfirst.setForeground(Color.LIGHT_GRAY);
-				} else if (mbField.equals(guide))
-					pwfirst.setForeground(Color.LIGHT_GRAY);
+				pwfirst.setBackground(Color.white);
 			}
 		});
-		pwfirst.setText("패스워드를 입력해주세요");
-		pwfirst.setForeground(Color.LIGHT_GRAY);
-		pwfirst.setHorizontalAlignment(SwingConstants.LEFT);
-		//idEnter.setText("\uC544\uC774\uB514 \uC785\uB825");
 		pwfirst.setColumns(8);
 		pwfirst.setBounds(151, 194, 116, 25);
 		centens.add(pwfirst);
@@ -383,29 +367,25 @@ public class join extends JFrame {
 					@Override
 					public void focusGained(FocusEvent e) {
 						pwpwField.setBackground(Color.yellow);
-						String guide = "패스워드를 입력해주세요";
 						String pw1 = new String(pwfirst.getPassword());
 						System.out.println("pw1: " + pw1);
-						if (guide.equals(pw1)) {
+						if (pw1.isEmpty()) {
 							lblStatus.setForeground(Color.RED);
-							pwpwField.setText("");
-							//pwfirst.requestFocusInWindow();
+						//	lblStatus.setText("첫번째 암호 입력하세요!");
+							pwfirst.requestFocusInWindow();
 						}
 					}
 					@Override
 					public void focusLost(FocusEvent e) {
-						pwpwField.setBackground(Color.white);	
-						String guide = "패스워드를 입력해주세요";
+						pwpwField.setBackground(Color.white);				
 						String pw1 = new String(pwfirst.getPassword());
 						String pw2 = new String(pwpwField.getPassword());
 						System.out.println("pw2: " + pw2);
 						if (pw2.isEmpty()) {
-							pwpwField.setText(guide);
 							lblStatus.setForeground(Color.RED);
 					//		lblStatus.setText("두번째 암호 입력하세요!");
-						} else if(pw2.equals(guide)){
+						} else {
 							// 4자 길이?
-							pwfirst.setForeground(Color.LIGHT_GRAY);
 							if( pw1.equals(pw2) ) {
 								lblStatus.setForeground(Color.BLUE);
 								lblStatus.setText("암호 일치");
@@ -416,9 +396,7 @@ public class join extends JFrame {
 						}
 					}
 				});
-				pwpwField.setText("패스워드를 입력해주세요");
-				pwpwField.setForeground(Color.LIGHT_GRAY);
-				pwpwField.setHorizontalAlignment(SwingConstants.LEFT);
+		
 		JLabel yymmdd = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
 		yymmdd.setBounds(141, 261, 140, 25);
 		centens.add(yymmdd);
@@ -457,7 +435,7 @@ public class join extends JFrame {
 		canel.setBounds(243, 331, 90, 23);
 		centens.add(canel);
 		
-		JButton OKButton = new JButton("\uB4F1\uB85D\uD558\uAE30");
+		OKButton = new JButton("\uB4F1\uB85D\uD558\uAE30");
 		OKButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// String dateStr = sf.format(yy.getValue()+(String)mm.getValue()+dd.getValue());

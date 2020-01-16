@@ -14,6 +14,7 @@ import db.dao.MemberDBManager;
 /*import db.dao.MemberDBMgr;
 import ui.member.MemberPasswordMgr;*/
 import db.util.OracleDBUtil;
+import sun.security.util.Length;
 //import ui.member.MemberPasswordMgr;
 import ui.movieMain.MovieMainFrame;
 
@@ -100,7 +101,7 @@ public class loginpop extends JFrame {
 				System.out.println(foundMb);
 				if( foundMb == null ) {
 					txtWelcome.setText(login+" 회원이 존재하지 않음!");
-					System.out.println("11");
+					//System.out.println("11");
 				} else {
 					// db에 회원이 존재하면..
 					String resPW = loginpop.decrypt(foundMb.getMemberPW());
@@ -109,7 +110,7 @@ public class loginpop extends JFrame {
 					//if(strPW.equals(foundMb.getPw())) {
 					if(strPW.equals(resPW)) {
 						txtWelcome.setText(login+" 회원 로그인 성공!!");
-						System.out.println("12");
+					//	System.out.println("12");
 						LOGGED_IN = Member.getMemberID();
 						MovieMainFrame mmf = new MovieMainFrame();
 						mmf.setSize(1000, 600);
@@ -117,7 +118,7 @@ public class loginpop extends JFrame {
 						mmf.setVisible(true);
 					} else {
 						txtWelcome.setText(login+" 회원 암호 불일치!");
-						System.out.println("113");
+					//	System.out.println("113");
 					}
 				}
 			}
@@ -192,7 +193,7 @@ public class loginpop extends JFrame {
 	}
 
 	public static String encrypt(String inPW) {
-		char xorPW[] = new char[4];
+		char xorPW[] = new char[inPW.length()];
 		for (int i = 0; i < inPW.length(); i++) {
 			int xorC = xor(inPW.charAt(i));
 			xorPW[i] = (char) xorC;
@@ -200,7 +201,7 @@ public class loginpop extends JFrame {
 		return new String(xorPW);
 	}
 	public static String decrypt(String dbPW ) {
-		char xorPW[] = new char[4];
+		char xorPW[] = new char[dbPW.length()];
 		for (int i = 0; i < dbPW.length(); i++) {
 			int xorC = xor(dbPW.charAt(i));
 			xorPW[i] = (char) xorC;

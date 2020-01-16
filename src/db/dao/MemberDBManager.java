@@ -69,7 +69,7 @@ public class MemberDBManager {
 		{
 			String sql = 
 				"select * from"
-				+ " c_members where login = '"+login+"'";
+				+ " movie_members where member_id = '"+login+"'";
 			try {
 				Statement stmt 
 						= con.createStatement();
@@ -92,6 +92,33 @@ public class MemberDBManager {
 	}
 
 	// 회원 한명 조회 - login일 일치하는 회원
+	public int memberDuplicat(String login) {
+		if( con != null ) // 접속 상태일때만... 
+		{
+			String sql = 
+				"select * from movie_members where member_id = ?";
+			System.out.println(login);
+			try {
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, login);
+				ResultSet rs = pstmt.executeQuery();
+				//while(rs.next()) { // 결과레코드가 있느냐?
+				if( rs.next() == true ) {
+
+					return 1; //있는 회원
+				} else {
+					return 0; //없는 회원 == 사용가능한 아이디
+				}
+			} catch (SQLException e) {				
+				e.printStackTrace();
+				
+			}
+		} else {
+			System.out.println("접속 에러!!");			
+		}
+		return -1; //에러
+	}
+	
 	// 레코드를 가져와 Member 데이터로 담아서 리턴
 	public Member selectOneMember(String login, String pw) {
 		if( con != null ) // 접속 상태일때만... 
@@ -105,6 +132,7 @@ public class MemberDBManager {
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, login);
 				pstmt.setString(2, pwpwpw);
+			//	System.out.println(pwpwpw+"pwpwpw");
 				ResultSet rs = pstmt.executeQuery();
 				//while(rs.next()) { // 결과레코드가 있느냐?
 				if( rs.next() == true ) {

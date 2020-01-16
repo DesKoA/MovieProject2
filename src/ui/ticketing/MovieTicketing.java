@@ -59,6 +59,7 @@ import java.util.LinkedHashMap;
  *
  * @author alfo4-9
  */
+
 public class MovieTicketing extends JFrame {
 	public int adPersons;
 	public int stPersons;

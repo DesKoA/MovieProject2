@@ -13,7 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import MovieList.Info;
+import data.MovieInfo;
 import data.MovieRank;
+import db.dao.MovieDBManager;
 import db.dao.MovieRankDBManager;
 import mypage.ImagePanel;
 import mypage.MyPageFrame;
@@ -29,8 +32,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.Image;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
 
 public class BookMarkFrame extends JFrame {
+	public static ArrayList<MovieInfo> mf;
 	private JPanel contentPane;
 	private ImagePanel contentPaneIg;
 
@@ -169,45 +175,67 @@ public class BookMarkFrame extends JFrame {
 		ArrayList<MovieRank> mvRankList = mvRank.selectAllRank();
 		for (int i = 0; 1 < mvRankList.size(); i++) {
 			MovieRank mvR = mvRankList.get(i);
-			System.out.println(mvR);
 		}
 		
 		ImageIcon frozen = new ImageIcon("./images/poster/겨울왕국2.jpg");
 
 		ImagePanel like1 = new ImagePanel(frozen.getImage(), "겨울왕국2.jpg");
-		like1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("마우스클릭");
-			}
-		});
+//		like1.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent arg0) {
+//				System.out.println("마우스클릭");
+//			}
+//		});
 
+		MovieDBManager mMgr = new MovieDBManager();
+		mf = mMgr.movieTitle_selectAll();
+		
+		
+		
 		like1.setBounds(285, 223, 150, 215);
 		like1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		like1.setLayout(new BorderLayout(0, 0));
 		panel.add(like1);
+		like1.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_4 = new JPanel();
+		like1.add(panel_4, "name_9119555991400");
+		panel_4.setLayout(new GridLayout(0, 3, 0, 0));
+		for (int i = 0; i < mf.size(); i++) {
+			MovieInfo mov = mf.get(i);
+			Info info = new Info(mov);
+			panel_4.add(String.valueOf("card" + mf.get(i)), info);
+		}
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		panel_4.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		panel_4.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		panel_4.add(lblNewLabel_2);
 		//like1.setLayout(null);
 		
 	//	JPanel like2 = new JPanel();
 		
-		ImageIcon ctDown = new ImageIcon("./images/poster/카운트다운.jpg");
-	//	contentPaneIg = new ImagePanel(ctDown.getImage(), "카운트다운.PNG");
-		ImagePanel like2 = new ImagePanel(ctDown.getImage(), "카운트다운.jpg");
-		
-		like2.setBounds(518, 225, 150, 213);
-		like2.setBorder(new EmptyBorder(5, 5, 5, 5));
-		like2.setLayout(new BorderLayout(0, 0));
-		panel.add(like2);
-		//like2.setLayout(null);
-		
-		ImageIcon ford = new ImageIcon("./images/poster/포드v페라리.jpg");
-		
-		ImagePanel like3 = new ImagePanel(ford.getImage(), "포드v페라리.jpg");
-		
-		like3.setBounds(754, 223, 150, 214);
-		like3.setBorder(new EmptyBorder(5, 5, 5, 5));
-		like3.setLayout(new BorderLayout(0, 0));
-		panel.add(like3);
+//		ImageIcon ctDown = new ImageIcon("./images/poster/카운트다운.jpg");
+//	//	contentPaneIg = new ImagePanel(ctDown.getImage(), "카운트다운.PNG");
+//		ImagePanel like2 = new ImagePanel(ctDown.getImage(), "카운트다운.jpg");
+//		
+//		like2.setBounds(518, 225, 150, 213);
+//		like2.setBorder(new EmptyBorder(5, 5, 5, 5));
+//		like2.setLayout(new BorderLayout(0, 0));
+//		panel.add(like2);
+//		//like2.setLayout(null);
+//		
+//		ImageIcon ford = new ImageIcon("./images/poster/포드v페라리.jpg");
+//		
+//		ImagePanel like3 = new ImagePanel(ford.getImage(), "포드v페라리.jpg");
+//		
+//		like3.setBounds(754, 223, 150, 214);
+//		like3.setBorder(new EmptyBorder(5, 5, 5, 5));
+//		like3.setLayout(new BorderLayout(0, 0));
+//		panel.add(like3);
 		
 		
 		JLabel lblLike = new JLabel("\uC88B\uC544\uC694");

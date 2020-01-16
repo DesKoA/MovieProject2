@@ -93,7 +93,7 @@ public class ReserveDBMgr {
 				ResultSet rs = stmt.executeQuery(sql);
 				ArrayList<Reserve1> rvList = new ArrayList<Reserve1>();
 				
-				
+				 
 				while ( rs.next() ) {
 					int RESERVE_NO = rs.getInt("RESERVE_NO");
 					

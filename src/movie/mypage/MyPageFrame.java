@@ -41,7 +41,7 @@ public class MyPageFrame extends JFrame {
 				}
 			}
 		});
-	}
+	} 
 
 	/**
 	 * Create the frame.

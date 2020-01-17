@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,6 +19,7 @@ import data.MovieInfo;
 import data.MovieRank;
 import db.dao.MovieDBManager;
 import db.dao.MovieRankDBManager;
+import login.loginpop;
 import mypage.ImagePanel;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
@@ -30,6 +32,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.awt.Image;
 import java.awt.CardLayout;
@@ -62,7 +67,7 @@ public class BookMarkFrame extends JFrame {
 	public BookMarkFrame() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./images/movie-symbol-of-video-camera_icon-icons.com_72981.png"));
 		setTitle("\uB098 \uBA3C\uC800 \uC608\uB9E4");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -171,16 +176,101 @@ public class BookMarkFrame extends JFrame {
 		
 //		JPanel like1 = new JPanel();
 		
+		JLabel lblLike = new JLabel("\uC88B\uC544\uC694");
+		lblLike.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLike.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblLike.setBounds(285, 147, 68, 21);
+		panel.add(lblLike);
+		
+		JLabel like1 = new JLabel("");
+		like1.setBounds(245, 210, 200, 250);
+		panel.add(like1);
+		
+		JLabel like2 = new JLabel("");
+		like2.setBounds(473, 210, 200, 250);
+		panel.add(like2);
+		
+		JLabel like3 = new JLabel("");
+		like3.setBounds(735, 210, 200, 250);
+		panel.add(like3);
+		
 		MovieRankDBManager mvRank = new MovieRankDBManager();
-		ArrayList<MovieRank> mvRankList = mvRank.selectAllRank();
-		for (int i = 0; 1 < mvRankList.size(); i++) {
+		MovieDBManager mvMgr = new MovieDBManager();
+		ArrayList<MovieRank> mvRankList = mvRank.selectAllRank(loginpop.LOGGED_IN);
+		System.out.println(mvRankList);
+		for (int i = 0; i < mvRankList.size(); i++) {
 			MovieRank mvR = mvRankList.get(i);
+			MovieInfo movIn = mvMgr.movie_selectOneByTitle(mvR.getMovieTitle());
+			if (movIn != null) {
+				
+				if (mvRankList.get(0) == null) {
+					like1.setText("좋아요가 없습니다.");
+				} else if (mvRankList.get(0) != null) {
+					try {
+						String strURL = movIn.getMoviePoster();
+						URL url = new URL(strURL);
+						Image image = ImageIO.read(url);
+						Image changedImg = image.getScaledInstance(200, 250, Image.SCALE_SMOOTH);
+						ImageIcon Icon = new ImageIcon(changedImg);
+						like1.setIcon(Icon);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					
+				}if (mvRankList.get(1) == null) {
+					like1.setText("좋아요가 없습니다.");
+				}
+				else if (mvRankList.get(1) != null) {
+					try {
+						String strURL = movIn.getMoviePoster();
+						URL url = new URL(strURL);
+						Image image = ImageIO.read(url);
+						Image changedImg = image.getScaledInstance(200, 250, Image.SCALE_SMOOTH);
+						ImageIcon Icon = new ImageIcon(changedImg);
+						like2.setIcon(Icon);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+				if (mvRankList.get(2) == null) {
+					like1.setText("좋아요가 없습니다.");
+				}
+				else if (mvRankList.get(2) != null) {
+					try {
+						String strURL = movIn.getMoviePoster();
+						URL url = new URL(strURL);
+						Image image = ImageIO.read(url);
+						Image changedImg = image.getScaledInstance(200, 250, Image.SCALE_SMOOTH);
+						ImageIcon Icon = new ImageIcon(changedImg);
+						like3.setIcon(Icon);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+					
+	//				like1.setBounds(285, 178, 653, 383);
+	//				like1.setBorder(new EmptyBorder(5, 5, 5, 5));
+	//				panel.add(like1);
+	//				like1.setLayout(new CardLayout(0, 0));
+	//				
+	//				JPanel panel_4 = new JPanel();
+	//				like1.add(panel_4, "name_9119555991400");
+	//				panel_4.setLayout(new GridLayout(0, 3, 0, 0));
+	//				
+	//				JLabel lblNewLabel = new JLabel("New label");
+	//				panel_4.add(lblNewLabel);
+	//				
+	//				JLabel lblNewLabel_1 = new JLabel("New label");
+	//				panel_4.add(lblNewLabel_1);
+	//				
+	//				JLabel lblNewLabel_2 = new JLabel("New label");
+	//				panel_4.add(lblNewLabel_2);
+			}
 		}
 		
 		
-		ImageIcon frozen = new ImageIcon("./images/poster/겨울왕국2.jpg");
+		// ImageIcon frozen = new ImageIcon("./images/poster/겨울왕국2.jpg");
 
-		ImagePanel like1 = new ImagePanel(frozen.getImage(), "겨울왕국2.jpg");
 //		like1.addMouseListener(new MouseAdapter() {
 //			@Override
 //			public void mouseClicked(MouseEvent arg0) {
@@ -188,34 +278,7 @@ public class BookMarkFrame extends JFrame {
 //			}
 //		});
 
-		MovieDBManager mMgr = new MovieDBManager();
-		mf = mMgr.movieTitle_selectAll();
 		
-		
-		
-		like1.setBounds(285, 178, 653, 383);
-		like1.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel.add(like1);
-		like1.setLayout(new CardLayout(0, 0));
-		
-		JPanel panel_4 = new JPanel();
-		like1.add(panel_4, "name_9119555991400");
-		panel_4.setLayout(new GridLayout(0, 3, 0, 0));
-		for (int i = 0; i < mf.size(); i++) {
-			MovieInfo mov = mf.get(i);
-			Info info = new Info(mov);
-			
-			panel_4.add(String.valueOf("card" + mf.get(i)), info);
-		}
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel_4.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel_4.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel_4.add(lblNewLabel_2);
 		//like1.setLayout(null);
 		
 	//	JPanel like2 = new JPanel();
@@ -240,10 +303,6 @@ public class BookMarkFrame extends JFrame {
 //		panel.add(like3);
 		
 		
-		JLabel lblLike = new JLabel("\uC88B\uC544\uC694");
-		lblLike.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLike.setFont(new Font("굴림", Font.PLAIN, 18));
-		lblLike.setBounds(285, 147, 68, 21);
-		panel.add(lblLike);
+		
 	}
 }

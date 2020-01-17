@@ -22,9 +22,9 @@ public class MovieRankDBManager {
 		this.con = con;
 	}
 	// 모든 좋아요 
-	public ArrayList<MovieRank> selectAllRank() {
+	public ArrayList<MovieRank> selectAllRank(String login) {
 	if (con != null) {
-		String sql = "select * from movie_Rank";
+		String sql = "select * from movie_Rank where member_id = " + "'" + login + "'";
 		try {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
@@ -76,4 +76,5 @@ public class MovieRankDBManager {
 			}	
 			return false;
 	}
+	
 }

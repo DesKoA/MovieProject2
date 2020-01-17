@@ -218,15 +218,26 @@ public class TicketInfoFrame extends JFrame {
 		}
 		
 		Reserve1 test1 = rvList.get(0);
-		lblMvTitle.setText("영화제목: " + test1.getMovieTitle());
-		lblReveNum.setText("예매번호: " + (String.valueOf(test1.getReserveNo())));
-		lblMvDate.setText("상영날짜: " + (String.valueOf(test1.getMovieDate())));
-		lblScrNum.setText("상영관: " + (String.valueOf(test1.getScreenNo())) + "관");
-		lblSeatNum.setText("인원: \r\n" + (String.valueOf(test1.getSeatNo())) + "명");
-		lblMemID.setText("아이디: " + test1.getMemberID());
-		lblPayMoney.setText("결제할 금액: " + (String.valueOf(test1.getReserveMoney()) + " 원"));
-		lblStartT.setText("영화시작시간: " + (String.valueOf(test1.getMovieStart())));
-		lblEndT.setText("영화종료시간: " + (String.valueOf(test1.getMovieEnd())));
-		
+		if (test1 != null) {
+			lblMvTitle.setText("영화제목: " + test1.getMovieTitle());
+			lblReveNum.setText("예매번호: " + (String.valueOf(test1.getReserveNo())));
+			lblMvDate.setText("상영날짜: " + (String.valueOf(test1.getMovieDate())));
+			lblScrNum.setText("상영관: " + (String.valueOf(test1.getScreenNo())) + "관");
+			lblSeatNum.setText("인원: \r\n" + (String.valueOf(test1.getSeatNo())) + "명");
+			lblMemID.setText("아이디: " + test1.getMemberID());
+			lblPayMoney.setText("결제할 금액: " + (String.valueOf(test1.getReserveMoney()) + " 원"));
+			lblStartT.setText("영화시작시간: " + (String.valueOf(test1.getMovieStart())));
+			lblEndT.setText("영화종료시간: " + (String.valueOf(test1.getMovieEnd())));
+		} else if (test1 == null) {
+			lblMvTitle.setText("영화제목: " + "예매 없음");
+			lblReveNum.setText("예매번호: " + "예매 없음");
+			lblMvDate.setText("상영날짜: " + "예매 없음");
+			lblScrNum.setText("상영관: " + "예매 없음");
+			lblSeatNum.setText("인원: \r\n" + "예매 없음");
+			lblMemID.setText("아이디: " + "예매 없음");
+			lblPayMoney.setText("결제할 금액: " + "예매 없음");
+			lblStartT.setText("영화시작시간: " + "예매 없음");
+			lblEndT.setText("영화종료시간: " + "예매 없음");
+		}
 	}
 }

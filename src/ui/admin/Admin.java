@@ -441,10 +441,10 @@ public class Admin extends JFrame {
 		movieTimeLabel.setText("시간");
 		movieInfo.add(movieTimeLabel, new AbsoluteConstraints(40, 440, -1, -1));
 
-		btnAllot.setBackground(new Color(255, 255, 255));
 		btnAllot.setFont(new Font("나눔스퀘어", 1, 24)); // NOI18N
 		btnAllot.setText("\uBC30\uC815 \uD558\uAE30");
-		btnAllot.setOpaque(false);
+		btnAllot.setOpaque(true);
+		btnAllot.setBackground(new Color(255, 255, 255));
 		btnAllot.setEnabled(false);
 		btnAllot.addActionListener(new ActionListener() {
 			// 배정하기

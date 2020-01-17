@@ -58,6 +58,7 @@ public class MainPage extends JFrame {
 			    super.paintComponent(g);
 			   }
 		};
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -94,6 +95,7 @@ public class MainPage extends JFrame {
 		panel.add(moviepanel);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.ORANGE);
 		panel_1.setBounds(45, 124, 913, 287);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
@@ -139,9 +141,12 @@ public class MainPage extends JFrame {
 		panel_1.add(nojoinBtn);
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		formattedTextField.setText("\uD68C\uC6D0\uAC00\uC785\uC2DC \uBE60\uB978 \uC608\uB9E4 \uAC00\uB2A5");
-		formattedTextField.setBounds(142, 222, 218, 35);
+		formattedTextField.setBackground(Color.ORANGE);
+		formattedTextField.setFont(new Font("±Ã¼­Ã¼", Font.BOLD, 18));
+		formattedTextField.setBorder(new EmptyBorder(0, 0, 0, 0)); //º¸´õ ¾ø¾Ö±â
+		//formattedTextField.setBorder(false);
+		formattedTextField.setText(" \uD68C\uC6D0\uAC00\uC785\uC2DC \uBE60\uB978 \uC608\uB9E4 \uAC00\uB2A5");
+		formattedTextField.setBounds(142, 222, 263, 35);
 		panel_1.add(formattedTextField);
 
 						

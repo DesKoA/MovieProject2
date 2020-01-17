@@ -209,7 +209,6 @@ public class MyPageFrame extends JFrame {
 				System.out.println("예매 정보 확인");
 				TicketInfoFrame tkInfo = new TicketInfoFrame();
 				tkInfo.setVisible(true);
-				
 			}
 		});
 	}

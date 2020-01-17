@@ -67,7 +67,7 @@ public class BookMarkFrame extends JFrame {
 	public BookMarkFrame() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./images/movie-symbol-of-video-camera_icon-icons.com_72981.png"));
 		setTitle("\uB098 \uBA3C\uC800 \uC608\uB9E4");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -198,14 +198,11 @@ public class BookMarkFrame extends JFrame {
 		MovieDBManager mvMgr = new MovieDBManager();
 		ArrayList<MovieRank> mvRankList = mvRank.selectAllRank(loginpop.LOGGED_IN);
 		System.out.println(mvRankList);
-		for (int i = 0; i < mvRankList.size(); i++) {
-			MovieRank mvR = mvRankList.get(i);
+			
+		if (mvRankList.size() != 0) {
+			MovieRank mvR = mvRankList.get(0);
 			MovieInfo movIn = mvMgr.movie_selectOneByTitle(mvR.getMovieTitle());
-			if (movIn != null) {
-				
-				if (mvRankList.get(0) == null) {
-					like1.setText("좋아요가 없습니다.");
-				} else if (mvRankList.get(0) != null) {
+				if (mvRankList.get(0) != null) {
 					try {
 						String strURL = movIn.getMoviePoster();
 						URL url = new URL(strURL);
@@ -217,11 +214,12 @@ public class BookMarkFrame extends JFrame {
 						e1.printStackTrace();
 					}
 					
-				}if (mvRankList.get(1) == null) {
-					like1.setText("좋아요가 없습니다.");
 				}
+				
 				else if (mvRankList.get(1) != null) {
 					try {
+						mvR = mvRankList.get(1);
+						movIn = mvMgr.movie_selectOneByTitle(mvR.getMovieTitle());
 						String strURL = movIn.getMoviePoster();
 						URL url = new URL(strURL);
 						Image image = ImageIO.read(url);
@@ -232,11 +230,10 @@ public class BookMarkFrame extends JFrame {
 						e1.printStackTrace();
 					}
 				}
-				if (mvRankList.get(2) == null) {
-					like1.setText("좋아요가 없습니다.");
-				}
 				else if (mvRankList.get(2) != null) {
 					try {
+						mvR = mvRankList.get(2);
+						movIn = mvMgr.movie_selectOneByTitle(mvR.getMovieTitle());
 						String strURL = movIn.getMoviePoster();
 						URL url = new URL(strURL);
 						Image image = ImageIO.read(url);
@@ -266,7 +263,13 @@ public class BookMarkFrame extends JFrame {
 	//				JLabel lblNewLabel_2 = new JLabel("New label");
 	//				panel_4.add(lblNewLabel_2);
 			}
+		else if (mvRankList.size() == 0) {
+			like1.setText("좋아요가 없습니다.");
+			like2.setText("");
+			like3.setText("");
 		}
+	}
+
 		
 		
 		// ImageIcon frozen = new ImageIcon("./images/poster/겨울왕국2.jpg");
@@ -304,5 +307,4 @@ public class BookMarkFrame extends JFrame {
 		
 		
 		
-	}
 }

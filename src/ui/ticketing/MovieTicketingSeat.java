@@ -210,7 +210,7 @@ public class MovieTicketingSeat extends JFrame {
 						dataList[5], dataList[6], stArray, Integer.parseInt(dataList[8]), Integer.parseInt(dataList[9]),
 						Integer.parseInt(dataList[10]), new Date());
 				rvMgr.insertReserve(rev);
-				resetFrame();
+				dispose();
 			}
 		});
 		movieInfo.add(btnSeatSelect, new AbsoluteConstraints(50, 540, 190, -1));

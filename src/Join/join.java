@@ -214,7 +214,8 @@ public class join extends JFrame {
 		JButton canel = new JButton("\uCDE8\uC18C\uD558\uAE30");
 		canel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				MainPage main  = new MainPage();
+				main.setVisible(true);
 			}
 		});
 		
@@ -285,14 +286,21 @@ public class join extends JFrame {
 					OKButton.setEnabled(true);
 					label_id.setForeground(Color.blue);
 					label_id.setText("로그인명 사용가능!!");
+					JOptionPane.showMessageDialog( contentPane, "로그인명 사용가능합니다.");
 					break;
 				case 1: errMsg = "로그인명 중복발견!!";
+				JOptionPane.showMessageDialog( contentPane, "로그인명 중복!");
+				label_id.setForeground(Color.red);
+				label_id.setText("로그인명 중복!!");
+				break;
 				case 2: if( errMsg == null )  
 							errMsg = "DB 예외!!";
+				break;
 				case 3: if( errMsg == null )
 							errMsg = "통신 예외!!";
 				label_id.setForeground(Color.red);
 				label_id.setText(errMsg);
+				break;
 				default:
 					break;
 				}
@@ -308,7 +316,7 @@ public class join extends JFrame {
 		idCheck.setBorderPainted(false);
 		
 		label_id = new JLabel("");
-		label_id.setBounds(141, 134, 148, 15);
+		label_id.setBounds(209, 41, 148, 15);
 		centens.add(label_id);
 		
 		JLabel email = new JLabel("\uC774\uBA54\uC77C");
@@ -343,7 +351,7 @@ public class join extends JFrame {
 		pwfirst.setColumns(10);
 		
 		lblStatus = new JLabel("");
-		lblStatus.setBounds(116, 237, 148, 15);
+		lblStatus.setBounds(141, 236, 148, 15);
 		centens.add(lblStatus);
 		
 //		pwpwField = new JTextField();

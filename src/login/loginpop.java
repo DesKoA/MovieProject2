@@ -91,7 +91,7 @@ public class loginpop extends JFrame {
 		label.setBounds(126, 11, 240, 31);
 		panel.add(label);
 		
-		JButton back_Button = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		JButton back_Button = new JButton("\uC2DC\uC791\uD654\uBA74");
 		back_Button.setForeground(Color.WHITE);
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -34,6 +34,7 @@ import data.MovieInfo;
 import db.dao.MovieDBManager;
 import db.dao.TheatersDBManager;
 import db.util.OracleDBUtil;
+import mypage.MyPageFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -392,7 +393,8 @@ public class MovieTicketing extends JFrame {
 		Mypage.setText("마이 페이지");
 		Mypage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				MyPageFrame my = new MyPageFrame();
+				my.setVisible(true);
 			}
 		});
 		movieInfo.add(Mypage, new AbsoluteConstraints(150, 10, 120, 30));

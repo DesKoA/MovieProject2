@@ -70,6 +70,7 @@ public class SelectSeatDialog extends JDialog {
 //		
 //	}
 	ArrayList<JButton> daylist;
+	public static int selDay = 0;
 	
 	public SelectSeatDialog() {
 		final int seatLim = 101;
@@ -95,68 +96,30 @@ public class SelectSeatDialog extends JDialog {
 							JButton btn = (JButton) e.getSource();
 						//	int seatNo = new Button(i + "").get
 							System.out.println(btn.getText());
+							selDay = Integer.parseInt(btn.getText());
 							
 						}
 					});
 					
 				}
-/*		{
-			
-		}
-			JLabel lbl01 = new JLabel("01");
-			lbl01.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					
-				}
-					JLabel lbl01 = (JLabel)e.getSource();
-					for (int i = 0; i < seatLabelList
-									.size(); i++) {
-						JLabel mnu = seatLabelList.get(i);
-						if( lbl01 == mnu ) {
-							Seat seatNum = seatList.get(i);
-							System.out.println(seatNum);
-							//
-						}
-					}
-				}
 				
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					JLabel lbl01 = (JLabel)e.getSource();
-					lbl01.setBackground(Color.BLUE);
-					super.mouseEntered(e);
-				}
-
-				@Override
-				public void mouseExited(MouseEvent e) {
-					JLabel lbl01 = (JLabel)e.getSource();
-					lbl01.setBackground(Color.GREEN);
-					super.mouseExited(e);
-				}
-			});
-					
-			lbl01.setHorizontalAlignment(SwingConstants.CENTER);
-			lbl01.setFont(new Font("굴림", Font.PLAIN, 20));
-			contentPanel.add(lbl01);
-			
-		}
-*/		{
+		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JLabel lblselSeat = new JLabel("New label");
+				JLabel lblselSeat = new JLabel("설정값 없음");
+				//lblselSeat.setText();
 				buttonPane.add(lblselSeat);
-			}
-			{
+			
 				JButton okButton = new JButton("OK");
 				okButton.setActionCommand("OK");
-//				okButton.addActionListener(new ActionListener() {
-//					public void actionPerformed(ActionEvent arg0) {
-//						int seatNo = new Button(i + "")
-//					}
-//				});	
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+					//	int seatNo = new Button(i + "")
+						lblselSeat.setText(selDay + "번으로 설정");
+					}
+				});	
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}

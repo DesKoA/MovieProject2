@@ -230,7 +230,7 @@ public class MovieTicketing extends JFrame {
 		student6 = new JToggleButton();
 		student7 = new JToggleButton();
 		
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBackground(new Color(255, 255, 255));
 
 		Main.setBackground(new Color(255, 255, 255));
@@ -857,7 +857,7 @@ public class MovieTicketing extends JFrame {
 				JButton btn = new JButton(tempList.get(j));
 				btn.setVisible(true);
 				
-				if (movDate.getDay() == today.getTime().getDay() && todayHourInt >= movieDate) {
+				if (movDate.getDate() == today.getTime().getDate() && todayHourInt >= movieDate) {
 					btn.setEnabled(false);
 				}
 				// btn.setBorder(new EmptyBorder(0, 10, 0, 10));

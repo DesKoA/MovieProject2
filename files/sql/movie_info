@@ -1,0 +1,96 @@
+--------------------------------------------------------
+--  파일이 생성됨 - 금요일-1월-17-2020   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table MOVIE_INFO
+--------------------------------------------------------
+
+  CREATE TABLE "JAVA"."MOVIE_INFO" 
+   (	"MOVIE_NO" NUMBER(*,0) DEFAULT 1, 
+	"MOVIE_TITLE" VARCHAR2(50 BYTE), 
+	"MOVIE_POSTER" VARCHAR2(100 BYTE), 
+	"MOVIE_TRAILER" VARCHAR2(100 BYTE), 
+	"MOVIE_CONTENT" VARCHAR2(1000 BYTE), 
+	"MOVIE_TIMES" NUMBER(*,0), 
+	"MOVIE_RATING" FLOAT(126), 
+	"MOVIE_GENRE" VARCHAR2(80 BYTE), 
+	"MOVIE_DIRECTOR" VARCHAR2(30 BYTE), 
+	"MOVIE_ACTORS" VARCHAR2(80 BYTE), 
+	"MOVIE_GRADE" NUMBER(*,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_NO" IS '번호';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_TITLE" IS '제목';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_POSTER" IS '포스터(이미지 경로)';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_TRAILER" IS '예고편(유튜브 경로)';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_CONTENT" IS '줄거리';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_TIMES" IS '상영시간';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_RATING" IS '평가점수';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_GENRE" IS '장르';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_DIRECTOR" IS '감독';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_ACTORS" IS '주연/조연';
+   COMMENT ON COLUMN "JAVA"."MOVIE_INFO"."MOVIE_GRADE" IS '상영등급';
+REM INSERTING into JAVA.MOVIE_INFO
+SET DEFINE OFF;
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (1,'시동','http://img.movist.com/?img=/x00/05/25/76_p1.jpg','https://www.youtube.com/watch?v=hKlpat_0IF0','정체불명 단발머리 주방장 ''거석이형''을 만난 어설픈 반항아 ''택일''과
+무작정 사회로 뛰어든 의욕충만 반항아 ''상필''.
+세상 무서울 것 없던 이들은 진짜 세상을 맛보게 되는데..?',102,8.4,'드라마','최정열','마동석, 박정민, 정해인, 염정아',15);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (2,'백두산','http://img.movist.com/?img=/x00/05/19/15_p1.jpg','https://www.youtube.com/watch?v=FKAbTcss1ow','대한민국 관측 역사상 최대 규모의 백두산 폭발 발생.
+남한의 특전사 대위 ''조인창''과 북한의 일급 자원 ''리준평''은 사상 초유의 재난을 막기 위해 힘을 합친다.
+그 사이, 백두산 마지막 폭발까지의 시간은 점점 가까워 가는데..!',128,6.5,'액션/드라마','이해준, 김병서','이병헌, 하정우, 마동석, 전혜진, 배수지',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (3,'겨울왕국 2','http://img.movist.com/?img=/x00/05/13/60_p1.jpg','https://www.youtube.com/watch?v=eSEs4B4H-EA','어느 날 부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다.
+자신의 힘을 두려워했던 엘사는 위험에 빠진 왕국을 구하기 위해 두려움을 깨고 새로운 운명을 만나야 하는데...',103,8.3,'애니메이션','크리스 벅, 제니퍼 리','크리스틴 벨, 이디나 멘젤, 조시 게드, 조나단 그로프...',0);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (4,'포드 V 페라리','http://img.movist.com/?img=/x00/05/16/58_p1.jpg','https://www.youtube.com/watch?v=sn7wcMigCCo','자존심을 건 대결의 시작!
+1960년대, ''포드''는 매출 감소를 해결하기 위해 ''페라리''와의 인수 합병을 추진하지만 실패, 모욕까지 당한다.
+이 치욕을 갚기위해 르망 24시간 레이스에서 불가능한 질주를 성공해야 한다!',152,9.2,'액션/드라마','제임스 맨골드','맷 데이먼, 크리스찬 베일...',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (5,'쥬만지: 넥스트 레벨','http://img.movist.com/?img=/x00/05/22/70_p1.jpg','https://www.youtube.com/watch?v=kDcqWYCdGrc','쥬만지 게임으로부터 가까스로 탈출해 평화로운 일상을 보내던 친구들.
+어느 날 게임속으로 사라진 친구를 찾아 다시 들어가기로 결심한다.
+진화된 게임, 주어진 목숨은 3개! 사라진 친구를 찾아 반드시 탈출하라!',123,6.1,'액션/어드벤처','제이크 캐스단','드웨인 존슨, 잭 블랙, 케빈 하트. 카렌 길런, 아콰피나...',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (6,'나이브스 아웃','https://movie-simg.yes24.com/NYes24/MOVIE/M54/M23/M000075423_134459.jpg','https://www.youtube.com/watch?v=kYHXGPadHP4','베스트셀러 미스터리 작가가 85세 생일에 숨진 채 발견된다.
+그의 죽음의 원인을 파헤치기 위해 경찰과 함께 탐정 브누아 블랑이 파견 되는데...',130,8.9,'미스터리/스릴러','라이언 존슨','다니엘 크레이그, 크리스 에반스, 아나 디 아르마스...',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (7,'라스트 크리스마스','https://t1.daumcdn.net/movie/10291d6cc5f04385aec91eec026ccbb51572916944250','https://www.youtube.com/watch?v=aNtqlkVJRzw','인생 뭐 하나 마음대로 되는게 없는 ''케이트'',
+반복되는 일상 속에서 크리스마스가 다가오던 날, 언제든 나타나는 ''톰''을 우연히 만나게 되는데...
+이번 크리스마스에는 행복할 수 있을까요?',103,7.1,'로맨스/코미디/멜로','폴 페이그','에밀리아 클라크, 헬리 골딩, 양자경, 엠마 톰슨',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (8,'감쪽같은 그녀','https://t1.daumcdn.net/movie/6fe97784de3f4947a593404152b1115f1573031160276','https://www.youtube.com/watch?v=i43oWv6jWJ4','72살 ''말순''할매의 인생에 듣도 보도 못한 손녀, ''공주''가 나타났다!
+모든 것이 극과 극인 ''말순''과 ''공주''는 서로에게 점점 특별한 존재가 되어간다.
+하지만 시간이 갈수록 둘의 동거생활은 힘들어져만 가는데...',104,7.7,'드라마','허인무','나문희, 김수안',0);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (9,'카운트다운','http://www.pointn.net/news/photo/201911/16326_21633_343.jpg','https://www.youtube.com/watch?v=MgmwYXzgh1I','일상이 따분한 간호사 ''퀸''은 무심코 생존시간을 알려주는 어플을 다운로드 받는다.
+어플은 앞으로 살 수 있는 시간이 3일 밖에 남지 않았다고 알려주는데..!
+어떻게든 이 상황을 빠져나가야 한다!!',90,6.7,'공포/스릴러','저스틴 덱','엘리자베스 라일, 피터 파시넬리, 탈리타 베이트먼',15);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (10,'두 교황','http://img.movist.com/?img=/x00/05/22/76_p1.jpg','https://www.youtube.com/watch?v=2GnUrI0W6Jw','자진 사임으로 바티칸을 뒤흔든 교황 베네딕토 16세와 그 뒤를 이은 교황 프란치스코의 실화를 담은 이야기.',126,8.9,'드라마','페르난도 메이렐레스','안소니 홉킨스, 조나단 프라이스',12);
+Insert into JAVA.MOVIE_INFO (MOVIE_NO,MOVIE_TITLE,MOVIE_POSTER,MOVIE_TRAILER,MOVIE_CONTENT,MOVIE_TIMES,MOVIE_RATING,MOVIE_GENRE,MOVIE_DIRECTOR,MOVIE_ACTORS,MOVIE_GRADE) values (11,'블랙 스완','https://t1.daumcdn.net/cfile/tistory/203409574DBF8F4032','https://www.youtube.com/watch?v=BSKRb4nThKE','[백조의 호수] 공연에서 순수하고 가녀린 백조와 관능적이고 도발적인 흑조,
+1인 2역을 완벽하게 해내고 싶은 프리마돈나 ''니나''
+흑조를 탐한 백조의 핏빛 도발이 다시 시작된다!',108,8.8,'드라마/스릴러','대런 아로노프스키','나탈리 포트만, 뱅상 카셀, 밀라 쿠니스, 위노나 라이더',19);
+--------------------------------------------------------
+--  DDL for Index MOVIE_INFO_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVA"."MOVIE_INFO_PK" ON "JAVA"."MOVIE_INFO" ("MOVIE_NO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table MOVIE_INFO
+--------------------------------------------------------
+
+  ALTER TABLE "JAVA"."MOVIE_INFO" ADD CONSTRAINT "MOVIE_INFO_PK" PRIMARY KEY ("MOVIE_NO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_GRADE" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_ACTORS" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_DIRECTOR" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_GENRE" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_RATING" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_TIMES" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_CONTENT" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_TRAILER" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_POSTER" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_TITLE" NOT NULL ENABLE);
+  ALTER TABLE "JAVA"."MOVIE_INFO" MODIFY ("MOVIE_NO" NOT NULL ENABLE);

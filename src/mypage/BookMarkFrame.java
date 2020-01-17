@@ -193,7 +193,7 @@ public class BookMarkFrame extends JFrame {
 		
 		
 		
-		like1.setBounds(285, 223, 150, 215);
+		like1.setBounds(285, 178, 653, 383);
 		like1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.add(like1);
 		like1.setLayout(new CardLayout(0, 0));
@@ -243,7 +243,7 @@ public class BookMarkFrame extends JFrame {
 		JLabel lblLike = new JLabel("\uC88B\uC544\uC694");
 		lblLike.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLike.setFont(new Font("±¼¸²", Font.PLAIN, 18));
-		lblLike.setBounds(285, 170, 68, 21);
+		lblLike.setBounds(285, 147, 68, 21);
 		panel.add(lblLike);
 	}
 }

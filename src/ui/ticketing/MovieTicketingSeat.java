@@ -175,10 +175,10 @@ public class MovieTicketingSeat extends JFrame {
 		movieInfoDay.setText("³¯Â¥");
 		movieInfo.add(movieInfoDay, new AbsoluteConstraints(40, 410, -1, -1));
 
-		btnSeatSelect.setBackground(new Color(255, 255, 255));
 		btnSeatSelect.setFont(new Font("³ª´®½ºÄù¾î", 1, 24)); // NOI18N
 		btnSeatSelect.setText("\uC88C\uC11D \uC120\uD0DD");
-		btnSeatSelect.setOpaque(false);
+		btnSeatSelect.setOpaque(true);
+		btnSeatSelect.setBackground(new Color(255, 255, 255));
 		btnSeatSelect.setEnabled(false);
 		btnSeatSelect.addActionListener(new ActionListener() {
 			@Override

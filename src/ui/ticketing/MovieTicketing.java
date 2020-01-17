@@ -440,10 +440,10 @@ public class MovieTicketing extends JFrame {
 		movieInfoDay.setText("날짜");
 		movieInfo.add(movieInfoDay, new AbsoluteConstraints(40, 410, -1, -1));
 
-		btnReserve.setBackground(new Color(255, 255, 255));
 		btnReserve.setFont(new Font("나눔스퀘어", 1, 24)); // NOI18N
 		btnReserve.setText("예매 하기");
-		btnReserve.setOpaque(false);
+		btnReserve.setOpaque(true);
+		btnReserve.setBackground(new Color(255, 255, 255));
 		btnReserve.setEnabled(false);
 		btnReserve.addActionListener(new ActionListener() {
 			@Override

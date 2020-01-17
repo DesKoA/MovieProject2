@@ -7,11 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.sun.crypto.provider.DESParameters;
+
 import db.util.OracleDBUtil;
 import db.util.OracleDBUtil1;
+import login.loginpop;
+import main.MainPage;
 import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -98,17 +104,29 @@ public class MyPageFrame extends JFrame {
 		lblMVInfoP.setFont(new Font("±¼¸²", Font.ITALIC, 25));
 		lblMVInfoP.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel label = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		label.addMouseListener(new MouseAdapter() {
+		JLabel lblLogout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblLogout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				loginpop.LOGGED_IN= null;
+				JOptionPane.showMessageDialog( null, "·Î±× ¾Æ¿ô µÇ¾ú½À´Ï´Ù");
+				dispose();
+				MainPage mp = new MainPage();
+				mp.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogout.setForeground(Color.gray);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogout.setForeground(Color.black);
 			}
 		});
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setFont(new Font("±¼¸²", Font.ITALIC, 25));
-		label.setBounds(5, 71, 213, 47);
-		panel_3.add(label);
+		lblLogout.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogout.setFont(new Font("±¼¸²", Font.ITALIC, 25));
+		lblLogout.setBounds(5, 71, 213, 47);
+		panel_3.add(lblLogout);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));

@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +19,7 @@ import db.dao.ReserveDBMgr;
 import db.util.OracleDBUtil;
 import db.util.OracleDBUtil1;
 import login.loginpop;
+import main.MainPage;
 import mypage.ImagePanel;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
@@ -126,6 +128,24 @@ public class TicketInfoFrame extends JFrame {
 		panel_3.add(lblMVInfoP);
 		
 		JLabel lblLogout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				loginpop.LOGGED_IN= null;
+				JOptionPane.showMessageDialog( null, "로그 아웃 되었습니다");
+				dispose();
+				MainPage mp = new MainPage();
+				mp.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogout.setForeground(Color.gray);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogout.setForeground(Color.black);
+			}
+		});
 		lblLogout.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogout.setFont(new Font("굴림", Font.ITALIC, 25));
 		lblLogout.setBounds(5, 135, 213, 47);

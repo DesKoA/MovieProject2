@@ -8,11 +8,14 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import db.util.OracleDBUtil1;
+import login.loginpop;
+import main.MainPage;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
 
@@ -100,11 +103,29 @@ public class SeatFrame extends JFrame {
 		lblMVInfoP.setBounds(12, 21, 199, 30);
 		panel_3.add(lblMVInfoP);
 		
-		JLabel logOut = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		logOut.setHorizontalAlignment(SwingConstants.CENTER);
-		logOut.setFont(new Font("±¼¸²", Font.ITALIC, 25));
-		logOut.setBounds(5, 135, 213, 47);
-		panel_3.add(logOut);
+		JLabel lblLogout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				loginpop.LOGGED_IN= null;
+				JOptionPane.showMessageDialog( null, "·Î±× ¾Æ¿ô µÇ¾ú½À´Ï´Ù");
+				dispose();
+				MainPage mp = new MainPage();
+				mp.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogout.setForeground(Color.gray);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogout.setForeground(Color.black);
+			}
+		});
+		lblLogout.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogout.setFont(new Font("±¼¸²", Font.ITALIC, 25));
+		lblLogout.setBounds(5, 135, 213, 47);
+		panel_3.add(lblLogout);
 		
 		JLabel lblmyPage = new JLabel("\uB9C8\uC774\uD398\uC774\uC9C0");
 		lblmyPage.addMouseListener(new MouseAdapter() {

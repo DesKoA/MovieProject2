@@ -181,5 +181,26 @@ public class MemberDBManager {
 		}
 		return null;
 	}
+	
+	public boolean seatUpdate(String cgSeat, String logIn) {
+		if (con != null) {
+			String sql = "UPDATE Movie_Members SET MEMBER_FAVOR = '"+cgSeat+"'" + "where member_ID =  '"+logIn+"'";
+			try {
+				PreparedStatement psmt = con.prepareStatement(sql);
+				int r = psmt.executeUpdate();
+				if ( r == 1 )
+					return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		
+		} else {
+			System.out.println("DB 통신 오류");
+		}
+		return false;
+	
+	}
+	
 }
 

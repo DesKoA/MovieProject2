@@ -9,6 +9,8 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import db.util.OracleDBUtil;
+import main.MainPage;
+import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -17,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 import java.awt.Choice;
@@ -93,6 +96,12 @@ public class noJoin extends JFrame {
 		panel.setLayout(null);
 		
 		JButton fstbutton = new JButton("\uCC98\uC74C\uD654\uBA74\uC73C\uB85C");
+		fstbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainPage main  = new MainPage();
+				main.setVisible(true);
+			}
+		});
 		fstbutton.setFont(new Font("굴림", Font.BOLD, 15));
 		fstbutton.setBackground(new Color(219, 86, 114));
 		fstbutton.setBounds(19, 50, 133, 35);
@@ -101,7 +110,8 @@ public class noJoin extends JFrame {
 		JButton nojoinBtn = new JButton("\uAC00\uC785\uD558\uAE30");
 		nojoinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				join join = new join();
+				join.setVisible(true);
 			}
 		});
 		nojoinBtn.setFont(new Font("굴림", Font.BOLD, 15));
@@ -181,12 +191,6 @@ public class noJoin extends JFrame {
     	centens.setBounds(211, 86, 775, 392);
 		contentPane.add(centens);
 		centens.setLayout(null);
-		
-		JButton canel = new JButton("\uCDE8\uC18C\uD558\uAE30");
-		canel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		
 		JLabel email = new JLabel("\uC774\uBA54\uC77C");
 		email.setBounds(141, 40, 140, 25);
@@ -298,10 +302,6 @@ public class noJoin extends JFrame {
 		phone1st.setColumns(4);
 		phone1st.setBounds(401, 75, 175, 25);
 		centens.add(phone1st);
-		canel.setBackground(new Color(123, 104, 238));
-		
-		canel.setBounds(509, 287, 90, 23);
-		centens.add(canel);
 		
 		JButton OKButton = new JButton("\uC608\uB9E4\uD558\uAE30");
 		OKButton.addActionListener(new ActionListener() {
@@ -309,6 +309,11 @@ public class noJoin extends JFrame {
 				Calendar cal = Calendar.getInstance();
 				cal.set(Integer.parseInt(String.valueOf(yy.getValue())), Integer.parseInt(String.valueOf(mm.getValue())), Integer.parseInt(String.valueOf(dd.getValue())));
 				Date date = cal.getTime();
+				JOptionPane.showMessageDialog( contentPane, "예매 화면으로 이동합니다.");
+				dispose();
+				MovieMainFrame mmf = new MovieMainFrame();
+				mmf.setSize(1000, 600);
+				mmf.setVisible(true);
 			}
 		});
 		OKButton.setBounds(401, 287, 97, 23);

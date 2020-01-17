@@ -18,6 +18,7 @@ import db.dao.MemberDBManager;
 import db.dao.MovieDBManager;
 import db.util.OracleDBUtil;
 import login.loginpop;
+import main.MainPage;
 import mypage.MyPageFrame;
 import ui.admin.Admin;
 
@@ -25,6 +26,7 @@ import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.CardLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.GridLayout;
@@ -149,7 +151,7 @@ public class MovieMainFrame extends JFrame {
 //		OracleDBUtil.connectDB();
 		setResizable(false);
 		setTitle("\uB098\uBA3C\uC800\uC608\uB9E4");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1000, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
@@ -308,6 +310,16 @@ public class MovieMainFrame extends JFrame {
 		pnMyPageLogout.add(lblNewLabel_3);
 
 		JLabel lblLogout = new JLabel("Logout");
+		lblLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				JOptionPane.showMessageDialog( contentPane, "·Î±× ¾Æ¿ô µÇ¾ú½À´Ï´Ù");
+				loginpop.LOGGED_IN = null;
+				dispose();
+				MainPage min = new MainPage();
+				min.setVisible(true);
+			}
+		});
 		lblLogout.setForeground(Color.WHITE);
 		lblLogout.setFont(new Font("ÈÞ¸Õ¿¢½ºÆ÷", Font.BOLD, 20));
 		pnMyPageLogout.add(lblLogout);
@@ -391,6 +403,7 @@ public class MovieMainFrame extends JFrame {
 				Info ads = new Info(mov);
 				potoPanels[3].add(String.valueOf("card" + mf.get(i)), ads);
 			}
+			
 		}
 		//
 		JPanel pnTOP_INFO = new JPanel();

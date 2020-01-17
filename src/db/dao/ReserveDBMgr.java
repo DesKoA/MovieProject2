@@ -92,7 +92,7 @@ public class ReserveDBMgr {
 				
 				 
 				while ( rs.next() ) {
-					int RESERVE_NO = rs.getInt("RESERVE_NO");
+					int RESERVE_NO = rs.getInt("RESERVE_index");
 					
 				//	System.out.println(RESERVE_NO);
 					String MOVIE_TITLE = rs.getString("MOVIE_TITLE");

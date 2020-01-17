@@ -309,7 +309,7 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 					try {
 						url = new URL(strURL);
 						Image image = ImageIO.read(url);
-						Image changedImg = image.getScaledInstance(350, 450, Image.SCALE_SMOOTH);
+						Image changedImg = image.getScaledInstance(350, 450, Image.SCALE_FAST);
 						Icon = new ImageIcon(changedImg);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -321,7 +321,7 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 					try {
 						url = new URL(strURL);
 						Image image = ImageIO.read(url);
-						Image changedImg = image.getScaledInstance(350, 450, Image.SCALE_SMOOTH);
+						Image changedImg = image.getScaledInstance(350, 450, Image.SCALE_FAST);
 						Icon = new ImageIcon(changedImg);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -581,7 +581,7 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 
 		for (int q = 0; q < imgIconList.length; q++) {
 			Image tempImg = imgIconList[q].getImage();
-			Image changeImg = tempImg.getScaledInstance(485, 225, Image.SCALE_SMOOTH);
+			Image changeImg = tempImg.getScaledInstance(485, 225, Image.SCALE_FAST);
 			imgIconList[q] = new ImageIcon(changeImg);
 		}
 

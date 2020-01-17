@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import data.Member;
 import data.MovieInfo;
 import data.MovieRank;
+import db.dao.MemberDBManager;
 import db.dao.MovieRankDBManager;
 import login.loginpop;
 import mypage.MyPageFrame;
@@ -421,7 +423,15 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 					SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 					Date time = new Date();
 					String time1 = format1.format(time);
-					txtAreaComments.append(text +" "+ time1 + newline);	
+					MemberDBManager mbMgr = new MemberDBManager();
+					loginpop loginIdPw = new loginpop();
+					String login = loginIdPw.LOGGED_IN;
+					String pw = loginIdPw.resPW;
+					Member mb = mbMgr.selectOneMember(login, pw);
+					String Id = mb.getMemberID();
+					String comments = Id+"¥‘¿« ¥Ò±€ " + text +" "+ time1 + newline;
+					// commentsDBø° ¿˙¿Â
+					txtAreaComments.append(comments);	
 					txtComments.selectAll();
 					txtAreaComments.setCaretPosition(txtAreaComments.getDocument().getLength());
 				}

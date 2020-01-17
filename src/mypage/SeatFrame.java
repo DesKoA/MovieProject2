@@ -180,7 +180,7 @@ public class SeatFrame extends JFrame {
 				selSeat.setVisible(true);
 			}
 		});
-		btnSeat.setBounds(295, 175, 170, 73);
+		btnSeat.setBounds(153, 174, 170, 73);
 		panel_4.add(btnSeat);
 		
 		JButton btnTime = new JButton("\uC2DC\uAC04 \uC124\uC815\uD558\uB7EC \uAC00\uAE30");

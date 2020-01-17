@@ -10,27 +10,24 @@ import java.util.ArrayList;
 import data.Member;
 import data.Reserve1;
 import data.Seat1;
+import db.util.OracleDBUtil;
 import db.util.OracleDBUtil1;
 
 public class ReserveDBMgr {
 	Connection con;
 	public ReserveDBMgr() {
-		this.con = OracleDBUtil1.con;
+		this.con = OracleDBUtil.con;
 	}
 	
-	public ArrayList<Reserve1> reveResult() {
-		
-		Member ID = new Member();
-		ID.setMemberID("minmin");
+	public ArrayList<Reserve1> reveResult(String login) {
 		
 		if( con != null ) {
 			ArrayList<Seat1> stList = new ArrayList<Seat1>();
 			
 			try {
 				
-				String sql = "select * from movie_reserve where member_id ='"+ID.getMemberID()+"'";
+				String sql = "select * from movie_reserve where member_id ='"+ login +"'";
 				
-				System.out.println(sql);
 //				if( ID.getMemberID().equals("minmin")) {
 //					String sql = "select * from movie_reserve where member_id = 'minmin'";
 //				}
@@ -110,7 +107,7 @@ public class ReserveDBMgr {
 				//	System.out.println(MOVIE_START);
 					String MOVIE_END = rs.getString("MOVIE_END");
 				//	System.out.println(MOVIE_END);
-					int SEAT_NO = rs.getInt("SEAT_NO");
+					// int SEAT_NO = rs.getInt("SEAT_NO");
 				//	System.out.println(SEAT_NO);
 					int RESERVE_ADULT = rs.getInt("RESERVE_ADULT");
 				//.out.println(RESERVE_ADULT);
@@ -121,7 +118,7 @@ public class ReserveDBMgr {
 					Date RESERVE_DAY = rs.getDate("RESERVE_DAY");
 				//.out.println(RESERVE_DAY);
 					
-					Reserve1 rv = new Reserve1(RESERVE_NO, MOVIE_TITLE, MEMBER_ID, SCREEN_NO, MOVIE_DATE, MOVIE_START, MOVIE_END, SEAT_NO, RESERVE_ADULT, RESERVE_STUDENT, RESERVE_MONEY, RESERVE_DAY, "");
+					Reserve1 rv = new Reserve1(RESERVE_NO, MOVIE_TITLE, MEMBER_ID, SCREEN_NO, MOVIE_DATE, MOVIE_START, MOVIE_END, RESERVE_ADULT + RESERVE_STUDENT, RESERVE_ADULT, RESERVE_STUDENT, RESERVE_MONEY, RESERVE_DAY, "");
 					
 					rvList.add(rv);
 						

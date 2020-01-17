@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import db.util.OracleDBUtil;
 import db.util.OracleDBUtil1;
 import ui.movieMain.MovieMainFrame;
 
@@ -32,7 +33,7 @@ public class MyPageFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OracleDBUtil1.connectDB();
+					OracleDBUtil.connectDB();
 					MyPageFrame frame = new MyPageFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {

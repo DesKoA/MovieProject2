@@ -15,7 +15,9 @@ import javax.swing.border.EmptyBorder;
 
 import data.Reserve1;
 import db.dao.ReserveDBMgr;
+import db.util.OracleDBUtil;
 import db.util.OracleDBUtil1;
+import login.loginpop;
 import mypage.ImagePanel;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
@@ -36,7 +38,7 @@ public class TicketInfoFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OracleDBUtil1.connectDB();
+					OracleDBUtil.connectDB();
 					TicketInfoFrame frame = new TicketInfoFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -203,7 +205,8 @@ public class TicketInfoFrame extends JFrame {
 		
 		ReserveDBMgr rvMgr = new ReserveDBMgr();
 		//fff = rvMgr.selectSeat();
-		ArrayList<Reserve1> rvList = rvMgr.reveResult();
+		
+		ArrayList<Reserve1> rvList = rvMgr.reveResult(loginpop.LOGGED_IN);
 
 //		for (Reserve1 reserve1 : rvList) {
 //			System.out.println(reserve1.toString());
@@ -218,8 +221,8 @@ public class TicketInfoFrame extends JFrame {
 		lblMvTitle.setText("영화제목: " + test1.getMovieTitle());
 		lblReveNum.setText("예매번호: " + (String.valueOf(test1.getReserveNo())));
 		lblMvDate.setText("상영날짜: " + (String.valueOf(test1.getMovieDate())));
-		lblScrNum.setText("상영관: " + (String.valueOf(test1.getScreenNo())));
-		lblSeatNum.setText("좌석: \r\n" + (String.valueOf(test1.getSeatNo())));
+		lblScrNum.setText("상영관: " + (String.valueOf(test1.getScreenNo())) + "관");
+		lblSeatNum.setText("인원: \r\n" + (String.valueOf(test1.getSeatNo())) + "명");
 		lblMemID.setText("아이디: " + test1.getMemberID());
 		lblPayMoney.setText("결제할 금액: " + (String.valueOf(test1.getReserveMoney()) + " 원"));
 		lblStartT.setText("영화시작시간: " + (String.valueOf(test1.getMovieStart())));

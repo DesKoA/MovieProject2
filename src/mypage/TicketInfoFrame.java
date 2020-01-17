@@ -175,7 +175,7 @@ public class TicketInfoFrame extends JFrame {
 		
 		JLabel lblScrNum = new JLabel("New label");
 		lblScrNum.setFont(new Font("±¼¸²", Font.PLAIN, 20));
-		lblScrNum.setBounds(397, 165, 91, 39);
+		lblScrNum.setBounds(397, 165, 191, 39);
 		ticketImg.add(lblScrNum);
 		
 		JLabel lblSeatNum = new JLabel("New label");

@@ -216,9 +216,8 @@ public class TicketInfoFrame extends JFrame {
 			System.out.println(reserve1.toString());
 			
 		}
-		
+		if (rvList.size() != 0) {
 		Reserve1 test1 = rvList.get(0);
-		if (test1 != null) {
 			lblMvTitle.setText("영화제목: " + test1.getMovieTitle());
 			lblReveNum.setText("예매번호: " + (String.valueOf(test1.getReserveNo())));
 			lblMvDate.setText("상영날짜: " + (String.valueOf(test1.getMovieDate())));
@@ -228,7 +227,7 @@ public class TicketInfoFrame extends JFrame {
 			lblPayMoney.setText("결제할 금액: " + (String.valueOf(test1.getReserveMoney()) + " 원"));
 			lblStartT.setText("영화시작시간: " + (String.valueOf(test1.getMovieStart())));
 			lblEndT.setText("영화종료시간: " + (String.valueOf(test1.getMovieEnd())));
-		} else if (test1 == null) {
+		} else if (rvList.size() == 0) {
 			lblMvTitle.setText("영화제목: " + "예매 없음");
 			lblReveNum.setText("예매번호: " + "예매 없음");
 			lblMvDate.setText("상영날짜: " + "예매 없음");

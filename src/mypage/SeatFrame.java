@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import db.util.OracleDBUtil1;
 import mypage.MyPageFrame;
 import ui.movieMain.MovieMainFrame;
 
@@ -34,6 +35,7 @@ public class SeatFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					OracleDBUtil1.connectDB();
 					SeatFrame frame = new SeatFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -181,28 +183,28 @@ public class SeatFrame extends JFrame {
 		btnSeat.setBounds(295, 175, 170, 73);
 		panel_4.add(btnSeat);
 		
-//		JButton btnTime = new JButton("\uC2DC\uAC04 \uC124\uC815\uD558\uB7EC \uAC00\uAE30");
-//		btnTime.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//			}
-//		});
-//		btnTime.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseEntered(MouseEvent arg0) {
-//				btnTime.setForeground(Color.green);
-//			}
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				btnTime.setForeground(Color.black);
-//			}
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				System.out.println("시간 설정");
-//				SelectTImeDialog selTime = new SelectTImeDialog();
-//				selTime.setVisible(true);
-//			}
-//		});
-//		btnTime.setBounds(440, 174, 170, 73);
-//		panel_4.add(btnTime);
+		JButton btnTime = new JButton("\uC2DC\uAC04 \uC124\uC815\uD558\uB7EC \uAC00\uAE30");
+		btnTime.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnTime.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				btnTime.setForeground(Color.green);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnTime.setForeground(Color.black);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("시간 설정");
+				SelectTImeDialog selTime = new SelectTImeDialog();
+				selTime.setVisible(true);
+			}
+		});
+		btnTime.setBounds(440, 174, 170, 73);
+		panel_4.add(btnTime);
 	}
 }

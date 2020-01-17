@@ -237,7 +237,7 @@ public class join extends JFrame {
 		JLabel id = new JLabel("\uC544\uC774\uB514");
 		id.setBounds(141, 38, 140, 25);
 		centens.add(id);
-		id.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		id.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 				
 				idEnter = new JTextField();
@@ -314,7 +314,7 @@ public class join extends JFrame {
 		JLabel email = new JLabel("\uC774\uBA54\uC77C");
 		email.setBounds(391, 38, 140, 25);
 		centens.add(email);
-		email.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		email.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		emailField = new JTextField();
 		emailField.setBounds(401, 75, 199, 25);
@@ -324,7 +324,7 @@ public class join extends JFrame {
 		JLabel pw = new JLabel("\uBE44\uBC00\uBC88\uD638");
 		pw.setBounds(141, 159, 140, 25);
 		centens.add(pw);
-		pw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		pw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		pwfirst = new JPasswordField();
 		pwfirst.addFocusListener(new FocusAdapter() {
@@ -354,7 +354,7 @@ public class join extends JFrame {
 		JLabel pwpw = new JLabel("\uBE44\uBC00\uBC88\uD638 \uD655\uC778");
 		pwpw.setBounds(391, 159, 140, 25);
 		centens.add(pwpw);
-		pwpw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		pwpw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 			//	pwFirst.setForeground(Color.LIGHT_GRAY);
 			//	pwFirst.setFont(new Font("±¼¸²", Font.BOLD, 16));
@@ -400,7 +400,7 @@ public class join extends JFrame {
 		JLabel yymmdd = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
 		yymmdd.setBounds(141, 261, 140, 25);
 		centens.add(yymmdd);
-		yymmdd.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		yymmdd.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		/*
 		 *  SimpleDateFormat sf = new SimpleDateFormat("YYYYMMDD");
@@ -424,7 +424,7 @@ public class join extends JFrame {
 		JLabel phone = new JLabel("\uC804\uD654\uBC88\uD638");
 		phone.setBounds(387, 261, 140, 25);
 		centens.add(phone);
-		phone.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		phone.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		phone1st = new JTextField();
 		phone1st.setColumns(4);
@@ -449,6 +449,8 @@ public class join extends JFrame {
 				Member mb = new Member(idEnter.getText(),encPw, "test", emailField.getText(), new java.sql.Date(date.getTime()), phone1st.getText(), null);
 				MemberDBManager mbMgr = new MemberDBManager();
 				mbMgr.insertNewMember(mb) ;
+				
+				
 			}
 		});
 		OKButton.setBounds(434, 331, 97, 23);

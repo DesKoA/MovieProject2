@@ -191,7 +191,7 @@ public class noJoin extends JFrame {
 		JLabel email = new JLabel("\uC774\uBA54\uC77C");
 		email.setBounds(141, 40, 140, 25);
 		centens.add(email);
-		email.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		email.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		emailField = new JTextField();
 		emailField.setBounds(151, 75, 169, 30);
@@ -201,7 +201,7 @@ public class noJoin extends JFrame {
 		JLabel pw = new JLabel("\uBE44\uBC00\uBC88\uD638");
 		pw.setBounds(141, 159, 140, 25);
 		centens.add(pw);
-		pw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		pw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		pwField = new JPasswordField();
 		pwField.addFocusListener(new FocusAdapter() {
@@ -226,7 +226,7 @@ public class noJoin extends JFrame {
 		JLabel pwpw = new JLabel("\uBE44\uBC00\uBC88\uD638 \uD655\uC778");
 		pwpw.setBounds(391, 159, 140, 25);
 		centens.add(pwpw);
-		pwpw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		pwpw.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 			//	pwFirst.setForeground(Color.LIGHT_GRAY);
 			//	pwFirst.setFont(new Font("±¼¸²", Font.BOLD, 16));
@@ -272,7 +272,7 @@ public class noJoin extends JFrame {
 		JLabel yymmdd = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
 		yymmdd.setBounds(141, 261, 140, 25);
 		centens.add(yymmdd);
-		yymmdd.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		yymmdd.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		JSpinner yy = new JSpinner();
 		yy.setModel(new SpinnerListModel(new String[] {"1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980"}));
@@ -292,7 +292,7 @@ public class noJoin extends JFrame {
 		JLabel phone = new JLabel("\uC804\uD654\uBC88\uD638");
 		phone.setBounds(391, 40, 140, 25);
 		centens.add(phone);
-		phone.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.PLAIN, 20));
+		phone.setFont(new Font("ÇÑÄÄµ¸¿ò", Font.BOLD, 20));
 		
 		phone1st = new JTextField();
 		phone1st.setColumns(4);

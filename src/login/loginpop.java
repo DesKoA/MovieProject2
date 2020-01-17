@@ -32,12 +32,11 @@ import java.awt.Color;
 public class loginpop extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField id_textField;
+	private JTextField pw_textField;
 	protected JLabel txtWelcome;
 	public static String LOGGED_IN;
 	public static int LOGGED_IN_ID;
-	public static String resPW;
 	/**
 	 * Launch the application.
 	 */
@@ -62,40 +61,47 @@ public class loginpop extends JFrame {
 	public loginpop() {
 		OracleDBUtil.connectDB();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 614, 422);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(72, 32, 324, 178);
+		panel.setBackground(Color.ORANGE);
+		panel.setBounds(66, 37, 469, 296);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		txtWelcome = new JLabel("\uB098 \uBA3C\uC800 \uC608\uBA54");
-		txtWelcome.setFont(new Font("HY견고딕", Font.PLAIN, 15));
+		txtWelcome = new JLabel("");
+		txtWelcome.setFont(new Font("궁서체", Font.PLAIN, 14));
 		txtWelcome.setForeground(Color.LIGHT_GRAY);
-		txtWelcome.setBounds(71, 90, 203, 23);
+		txtWelcome.setBounds(250, 90, 203, 23);
 		panel.add(txtWelcome);
 		
-		JLabel label = new JLabel("\uB098 \uBA3C\uC800 \uC608\uBA54");
+		JLabel label = new JLabel("      \uB098  \uBA3C \uC800  \uC608 \uB9E4");
 		label.setFont(new Font("HY헤드라인M", Font.PLAIN, 20));
 		label.setForeground(SystemColor.textHighlight);
-		label.setBounds(71, 10, 126, 31);
+		label.setBounds(126, 11, 240, 31);
 		panel.add(label);
 		
-		JButton btnNewButton_1 = new JButton("\uB4A4\uB85C\uAC00\uAE30");
-		btnNewButton_1.setBounds(3, 155, 97, 23);
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton = new JButton("\uB85C\uADF8\uC778");
-		btnNewButton.addActionListener(new ActionListener() {
-			
-
+		JButton back_Button = new JButton("\uB4A4\uB85C\uAC00\uAE30");
+		back_Button.setForeground(Color.WHITE);
+		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String login = textField.getText();
-				char[] pw = ((JPasswordField) textField_1).getPassword();
+			}
+		});
+		back_Button.setBounds(71, 243, 97, 23);
+		back_Button.setBackground(new Color(66, 145, 244));
+		panel.add(back_Button);
+		
+		JButton login_Button = new JButton("\uB85C\uADF8\uC778");
+		login_Button.setForeground(Color.WHITE);
+		login_Button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String login = id_textField.getText();
+				char[] pw = ((JPasswordField) pw_textField).getPassword();
 				String strPW = new String(pw);
 				System.out.println(login+"__"+strPW);
 				
@@ -107,7 +113,7 @@ public class loginpop extends JFrame {
 					//System.out.println("11");
 				} else {
 					// db에 회원이 존재하면..
-					resPW = loginpop.decrypt(foundMb.getMemberPW());
+					String resPW = loginpop.decrypt(foundMb.getMemberPW());
 						// 암호화 패스워드 복원... XOR 단순방식
 					System.out.println("resPW = " + resPW);						
 					//if(strPW.equals(foundMb.getPw())) {
@@ -126,8 +132,9 @@ public class loginpop extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(152, 155, 97, 23);
-		panel.add(btnNewButton);
+		login_Button.setBounds(289, 243, 97, 23);
+		panel.add(login_Button);
+		login_Button.setBackground(new Color(66, 145, 244));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		/*
 		
@@ -174,25 +181,27 @@ public class loginpop extends JFrame {
 		panel.add(btnLoginProc);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			*/	
-		JLabel lblNewLabel = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel.setBounds(12, 46, 57, 15);
-		panel.add(lblNewLabel);
+		JLabel id_lblNewLabel = new JLabel("\uC544\uC774\uB514");
+		id_lblNewLabel.setFont(new Font("HY강M", Font.BOLD, 15));
+		id_lblNewLabel.setBounds(71, 52, 97, 23);
+		panel.add(id_lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_1.setBounds(12, 98, 57, 15);
-		panel.add(lblNewLabel_1);
+		JLabel pw_lblNewLabel = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		pw_lblNewLabel.setFont(new Font("HY강M", Font.BOLD, 15));
+		pw_lblNewLabel.setBounds(71, 141, 131, 23);
+		panel.add(pw_lblNewLabel);
 		
-		textField = new JTextField();
+		id_textField = new JTextField();
 		//textField.setText("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
-		textField.setBounds(12, 67, 139, 21);
-		panel.add(textField);
-		textField.setColumns(10);
+		id_textField.setBounds(71, 77, 167, 36);
+		panel.add(id_textField);
+		id_textField.setColumns(10);
 		
-		textField_1 = new JPasswordField();
+		pw_textField = new JPasswordField();
 		//textField_1.setText("\uBE44\uBC00\uBC88\uD638");
-		textField_1.setBounds(12, 123, 139, 21);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		pw_textField.setBounds(71, 166, 167, 36);
+		panel.add(pw_textField);
+		pw_textField.setColumns(10);
 	}
 
 	public static String encrypt(String inPW) {

@@ -230,7 +230,7 @@ public class MovieTicketing extends JFrame {
 		student6 = new JToggleButton();
 		student7 = new JToggleButton();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBackground(new Color(255, 255, 255));
 
 		Main.setBackground(new Color(255, 255, 255));

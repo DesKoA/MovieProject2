@@ -253,7 +253,7 @@ public class Admin extends JFrame {
 		lblSelMovieTime = new JLabel();
 		movieTimeLabelName = new JLabel();
 		
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBackground(new Color(255, 255, 255));
 
 		Main.setBackground(new Color(255, 255, 255));

@@ -133,8 +133,6 @@ public class loginpop extends JFrame {
 						LOGGED_IN = Member.getMemberID();
 							JOptionPane.showMessageDialog( contentPane, "로그인 되었습니다");
 							dispose();
-						
-						
 						MovieMainFrame mmf = new MovieMainFrame();
 						mmf.setSize(1000, 600);
 						mmf.setVisible(true);

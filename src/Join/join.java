@@ -449,8 +449,10 @@ public class join extends JFrame {
 				Member mb = new Member(idEnter.getText(),encPw, "test", emailField.getText(), new java.sql.Date(date.getTime()), phone1st.getText(), null);
 				MemberDBManager mbMgr = new MemberDBManager();
 				mbMgr.insertNewMember(mb) ;
-				
-				
+				JOptionPane.showMessageDialog( contentPane, "회원 가입 되었습니다. 로그인 화면으로 이동합니다.");
+				dispose();
+				loginpop loginp = new loginpop();
+				loginp.setVisible(true);
 			}
 		});
 		OKButton.setBounds(434, 331, 97, 23);

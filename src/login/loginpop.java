@@ -9,23 +9,27 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.JTextComponent;
 
+import Join.join;
 import data.Member;
 import db.dao.MemberDBManager;
 /*import db.dao.MemberDBMgr;
 import ui.member.MemberPasswordMgr;*/
 import db.util.OracleDBUtil;
+import main.MainPage;
 import sun.security.util.Length;
 //import ui.member.MemberPasswordMgr;
 import ui.movieMain.MovieMainFrame;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -91,6 +95,9 @@ public class loginpop extends JFrame {
 		back_Button.setForeground(Color.WHITE);
 		back_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainPage main = new MainPage();
+				main.setVisible(true);
 			}
 		});
 		back_Button.setBounds(71, 243, 97, 23);
@@ -124,15 +131,19 @@ public class loginpop extends JFrame {
 						txtWelcome.setText(login+" 회원 로그인 성공!!");
 					//	System.out.println("12");
 						LOGGED_IN = Member.getMemberID();
+							JOptionPane.showMessageDialog( contentPane, "로그인 되었습니다");
+							dispose();
+						
+						
 						MovieMainFrame mmf = new MovieMainFrame();
 						mmf.setSize(1000, 600);
-						dispose();
 						mmf.setVisible(true);
 					} else {
 						txtWelcome.setText(login+" 회원 암호 불일치!");
 					//	System.out.println("113");
 					}
 				}
+
 			}
 		});
 		login_Button.setBounds(289, 243, 97, 23);

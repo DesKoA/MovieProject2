@@ -265,7 +265,7 @@ public class BookMarkFrame extends JFrame {
 			}
 		else if (mvRankList.size() == 0) {
 			like1.setFont(new Font("굴림", Font.BOLD, 35));
-			like1.setText("좋아요가 없습니다.");
+			like1.setText("<html>좋아요가<br>없습니다.</html>");
 			like2.setText("");
 			like3.setText("");
 		}

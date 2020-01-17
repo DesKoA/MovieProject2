@@ -208,7 +208,8 @@ public class MyPageFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("예매 정보 확인");
 				TicketInfoFrame tkInfo = new TicketInfoFrame();
-				tkInfo.setVisible(true);	
+				tkInfo.setVisible(true);
+				
 			}
 		});
 	}

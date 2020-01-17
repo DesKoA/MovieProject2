@@ -50,6 +50,7 @@ public class SelectTImeDialog extends JDialog {
 		{
 			//for (int i = 0; i < array.length; i++) {
 				
+			
 			//}
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));

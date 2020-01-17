@@ -427,6 +427,7 @@ public class MoviePosterInfo extends JDialog implements ActionListener {
 					loginpop loginIdPw = new loginpop();
 					String login = loginIdPw.LOGGED_IN;
 					String pw = loginIdPw.resPW;
+					
 					Member mb = mbMgr.selectOneMember(login, pw);
 					String Id = mb.getMemberID();
 					String comments = Id+"¥‘¿« ¥Ò±€ " + text +" "+ time1 + newline;

@@ -37,6 +37,7 @@ public class loginpop extends JFrame {
 	protected JLabel txtWelcome;
 	public static String LOGGED_IN;
 	public static int LOGGED_IN_ID;
+	public static String resPW;
 	/**
 	 * Launch the application.
 	 */
@@ -99,6 +100,8 @@ public class loginpop extends JFrame {
 		JButton login_Button = new JButton("\uB85C\uADF8\uC778");
 		login_Button.setForeground(Color.WHITE);
 		login_Button.addActionListener(new ActionListener() {
+			private String resPW;
+
 			public void actionPerformed(ActionEvent e) {
 				String login = id_textField.getText();
 				char[] pw = ((JPasswordField) pw_textField).getPassword();
@@ -113,7 +116,7 @@ public class loginpop extends JFrame {
 					//System.out.println("11");
 				} else {
 					// db에 회원이 존재하면..
-					String resPW = loginpop.decrypt(foundMb.getMemberPW());
+					resPW = loginpop.decrypt(foundMb.getMemberPW());
 						// 암호화 패스워드 복원... XOR 단순방식
 					System.out.println("resPW = " + resPW);						
 					//if(strPW.equals(foundMb.getPw())) {

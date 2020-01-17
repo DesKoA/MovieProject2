@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.GridLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class SelectTImeDialog extends JDialog {
 
@@ -37,7 +40,13 @@ public class SelectTImeDialog extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(new GridLayout(18, 1, 0, 0));
+		contentPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("\uC544\uC9C1 \uAD6C\uD604\uC911\uC785\uB2C8\uB2E4(_ _)");
+		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 30));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(137, 111, 312, 90);
+		contentPanel.add(lblNewLabel);
 		{
 			//for (int i = 0; i < array.length; i++) {
 				
@@ -58,5 +67,4 @@ public class SelectTImeDialog extends JDialog {
 			}
 		}
 	}
-
 }
